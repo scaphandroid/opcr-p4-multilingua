@@ -8,19 +8,20 @@
         <ion-list>
             <ion-item>
                 <span class="input-label">Votre email</span>
-                <input type="text">
+                <input type="text" ng-model="loginData.email">
             </ion-item>
 
             <ion-item>
                 <span class="input-label">Votre mot de passe</span>
-                <input type="password">
+                <input type="password" ng-model="loginData.password">
             </ion-item>
         </ion-list>
 
         <div class="padding text-center">
-            <button class="button button-positive">Se connecter</button>
+            <button class="button button-positive" ng-click="signIn()">Se connecter</button>
         </div>
 
+        <a href="#">Oublié vos accès ?</a><br>
         <a href="#">Pas encore de compte ?</a>
     </ion-content>
 </ion-view>

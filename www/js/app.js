@@ -34,7 +34,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   //la page de login apparait à l'ouverture de l'application
   .state('login', {
       url: '/login',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
   })
 
   // setup an abstract state for the tabs directive
