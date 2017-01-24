@@ -47,41 +47,42 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.courses', {
+    url: '/courses',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-courses': {
+        templateUrl: 'templates/tab-courses.html',
+        controller: 'CoursesCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.planning', {
+      url: '/planning',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-planning': {
+          templateUrl: 'templates/tab-planning.html',
+          controller: 'PlanningCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.contacts', {
+    url: '/contacts',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-contacts': {
+        templateUrl: 'templates/tab-contacts.html',
+        controller: 'ContactsCtrl'
+      }
+    }
+  })
+
+  .state('tab.parameters', {
+    url: '/parameters',
+    views: {
+      'tab-parameters': {
+        templateUrl: 'templates/tab-parameters.html',
+        controller: 'ParametersCtrl'
       }
     }
   });
