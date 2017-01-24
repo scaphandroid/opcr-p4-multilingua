@@ -7,7 +7,11 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('CoursesCtrl', function($scope) {})
+.controller('CoursesCtrl', function($scope, Courses) {
+
+  $scope.courses = Courses.get('ESP');
+  console.log($scope.courses);
+})
 
 .controller('PlanningCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
