@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
 
 .controller('CoursesCtrl', function($scope, Courses) {
 
-  $scope.courses = Courses.get('ESP');
+  $scope.courses = Courses.get('EN');
   console.log($scope.courses);
 })
 

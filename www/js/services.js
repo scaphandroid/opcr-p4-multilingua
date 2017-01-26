@@ -4,7 +4,7 @@ angular.module('starter.services', [])
 
   //TODO le contenu des cours sera à déplacer dans un stockage dédié
 
-  var coursEN = '{"titre": "Lesson", "audioURL": "", "imgURL": "", "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae pulvinar elit, sed pharetra felis. Donec sollicitudin odio ut elit convallis cursus. Sed scelerisque lacus at tellus accumsan, id facilisis mi porta. Curabitur molestie id magna ac iaculis. Aenean vulputate facilisis sollicitudin. Cras porttitor dolor vel ligula tempus fermentum. Suspendisse efficitur arcu et mauris lacinia interdum. Nullam congue mi nisi, a interdum velit molestie at. In tristique lorem lorem, ac feugiat nunc faucibus in. Sed quis sagittis enim. Suspendisse risus quam, iaculis at pulvinar ac, congue et leo. Maecenas sodales metus at felis sagittis molestie. In sit amet cursus dui, non lobortis justo. Phasellus accumsan tellus id ultrices tempor. Donec sagittis nisl quis nisi aliquam luctus. Pellentesque vitae nisi lacus. " }';
+  var coursEN = '{"titre": "Comparative and Superlative Adjectives", "audioURL": "", "imgURL": "", "texte": "Comparative adjectives are used to compare two things or people to each other."}';
   var coursESP = '{"titre": "LessonESP", "audioURL": "", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/langfr-225px-Flag_of_Spain.svg.png", "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae pulvinar elit, sed pharetra felis. Donec sollicitudin odio ut elit convallis cursus. Sed scelerisque lacus at tellus accumsan, id facilisis mi porta. Curabitur molestie id magna ac iaculis. Aenean vulputate facilisis sollicitudin. Cras porttitor dolor vel ligula tempus fermentum. Suspendisse efficitur arcu et mauris lacinia interdum. Nullam congue mi nisi, a interdum velit molestie at. In tristique lorem lorem, ac feugiat nunc faucibus in. Sed quis sagittis enim. Suspendisse risus quam, iaculis at pulvinar ac, congue et leo. Maecenas sodales metus at felis sagittis molestie. In sit amet cursus dui, non lobortis justo. Phasellus accumsan tellus id ultrices tempor. Donec sagittis nisl quis nisi aliquam luctus. Pellentesque vitae nisi lacus. " }'
   var coursDEU = '{"titre": "LessonDEU", "audioURL": "", "imgURL": "", "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae pulvinar elit, sed pharetra felis. Donec sollicitudin odio ut elit convallis cursus. Sed scelerisque lacus at tellus accumsan, id facilisis mi porta. Curabitur molestie id magna ac iaculis. Aenean vulputate facilisis sollicitudin. Cras porttitor dolor vel ligula tempus fermentum. Suspendisse efficitur arcu et mauris lacinia interdum. Nullam congue mi nisi, a interdum velit molestie at. In tristique lorem lorem, ac feugiat nunc faucibus in. Sed quis sagittis enim. Suspendisse risus quam, iaculis at pulvinar ac, congue et leo. Maecenas sodales metus at felis sagittis molestie. In sit amet cursus dui, non lobortis justo. Phasellus accumsan tellus id ultrices tempor. Donec sagittis nisl quis nisi aliquam luctus. Pellentesque vitae nisi lacus. " }';
   var coursPORT = '{"titre": "LessonPORT", "audioURL": "", "imgURL": "", "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae pulvinar elit, sed pharetra felis. Donec sollicitudin odio ut elit convallis cursus. Sed scelerisque lacus at tellus accumsan, id facilisis mi porta. Curabitur molestie id magna ac iaculis. Aenean vulputate facilisis sollicitudin. Cras porttitor dolor vel ligula tempus fermentum. Suspendisse efficitur arcu et mauris lacinia interdum. Nullam congue mi nisi, a interdum velit molestie at. In tristique lorem lorem, ac feugiat nunc faucibus in. Sed quis sagittis enim. Suspendisse risus quam, iaculis at pulvinar ac, congue et leo. Maecenas sodales metus at felis sagittis molestie. In sit amet cursus dui, non lobortis justo. Phasellus accumsan tellus id ultrices tempor. Donec sagittis nisl quis nisi aliquam luctus. Pellentesque vitae nisi lacus. " }';
@@ -13,6 +13,15 @@ angular.module('starter.services', [])
     get: function(language){
       if (language === 'ESP'){
         return JSON.parse(coursESP);
+      }
+      if (language === 'EN'){
+          return JSON.parse(coursEN);
+      }
+      if (language === 'DEU'){
+          return JSON.parse(coursDEU);
+      }
+      if (language === 'PORT'){
+          return JSON.parse(coursPORT);
       }
     }
   };

@@ -1,5 +1,25 @@
 /* Empty. Add your own CSS if you like */
 
+body{
+    font-family: "Open Sans";
+}
+
+ion-content, .back-color{
+    background-color: #E0E4F2;
+}
+
+h1{
+    font-size: 28px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+p{
+    text-align: justify;
+}
+
 a{
     color: #266190;
 }
@@ -19,14 +39,5 @@ a{
     background-color: #E0E4F2;
 }
 
-.back-color{
-    background-color: #E0E4F2;
-}
 
-h1{
-    font-size: 28px;
-}
 
-h2{
-    font-size: 20px;
-}
