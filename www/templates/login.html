@@ -1,19 +1,19 @@
 <ion-view view-title="Login">
-    <ion-content>
+    <ion-content class="text-center back-color">
 
-        <img src="" alt="logo multilingua"/>
+        <img id="logo_login" src="../img/multilingua_logo.png" alt="logo multilingua"/>
 
         <h1>Merci de vous connecter avec votre compte Multilingua</h1>
 
         <ion-list>
-            <ion-item>
+            <ion-item class="back-color">
                 <span class="input-label">Votre email</span>
-                <input type="text" ng-model="loginData.email">
+                <input class="back-color" type="text" ng-model="loginData.email">
             </ion-item>
 
-            <ion-item>
+            <ion-item class="back-color">
                 <span class="input-label">Votre mot de passe</span>
-                <input type="password" ng-model="loginData.password">
+                <input class="back-color" type="password" ng-model="loginData.password">
             </ion-item>
         </ion-list>
 
@@ -21,7 +21,9 @@
             <button class="button button-positive" ng-click="signIn()">Se connecter</button>
         </div>
 
+        <h2>
+            <a href="#">Pas encore de compte ?</a>
+        </h2>
         <a href="#">Oublié vos accès ?</a><br>
-        <a href="#">Pas encore de compte ?</a>
     </ion-content>
 </ion-view>

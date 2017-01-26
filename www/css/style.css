@@ -1,1 +1,32 @@
 /* Empty. Add your own CSS if you like */
+
+a{
+    color: #266190;
+}
+
+.button.button-positive{
+    background-color: #54CAF5;
+    color: black;
+}
+
+#logo_login{
+    max-width: 100%;
+    height: 100px;
+    margin-top: 20px;
+}
+
+#liste_login{
+    background-color: #E0E4F2;
+}
+
+.back-color{
+    background-color: #E0E4F2;
+}
+
+h1{
+    font-size: 28px;
+}
+
+h2{
+    font-size: 20px;
+}
