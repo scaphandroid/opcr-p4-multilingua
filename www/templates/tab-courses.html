@@ -9,31 +9,15 @@
       <source src="{{ courses.audioURL }}">
     </audio>
 
-    <p class="text-left">{{ courses.texte }}</p>
-    <h4 class="text-left">Examples :</h4>
-    <ion-list>
-      <ion-item class="back-color">
-        A bus is bigger than a car.
-      </ion-item>
-
-      <ion-item class="back-color">
-        Bill is older than Harry.
-      </ion-item>
-    </ion-list>
-
-    <p class="text-left">Superlative adjectives are used to compare one member of a group to the whole group.
-      We use the with a superlative adjective.</p>
-    <h4 class="text-left">Examples :</h4>
-    <ion-list>
-      <ion-item class="back-color">
-        The Nile is the longest river in the world.
-      </ion-item>
-
-      <ion-item class="back-color">
-        In our class Maria is the oldest.
-      </ion-item>
-    </ion-list>
-
+    <div ng-repeat="lesson in courses.lessons">
+     <p class="text-left text-lesson">{{ lesson.texte }}</p>
+     <h4 class="text-left">Examples :</h4>
+     <ion-list>
+       <ion-item ng-repeat="exemple in lesson.exemples" class="back-color">
+         {{ exemple.citation }}
+       </ion-item>
+     </ion-list>
+    </div>
 
     <div class="padding text-center">
       <button class="button button-positive">PRACTICE</button>
