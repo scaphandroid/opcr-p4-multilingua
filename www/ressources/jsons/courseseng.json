@@ -1,21 +1,30 @@
 {
-	"titre": "Comparative and Superlative Adjectives", 
-	"audioURL": "../ressources/audio/englesson.mp3", 
-	"imgURL": "../ressources/imgs/englesson.jpg", 
-	"lessons": [ 
-			{
-				"texte": "Comparative adjectives are used to compare two things or people to each other.", 
-				"exemples": [
-						{"citation": "A bus is bigger than a car."}, 
-						{"citation": "Bill is older than Harry."}
-				] 
-			},
-			{
-				"texte": "Superlative adjectives are used to compare one member of a group to the whole group. We use the with a superlative adjective.", 
-				"exemples": [
-						{"citation": "The Nile is the longest river in the world."}, 
-						{"citation": "In our class Maria is the oldest."}
-				] 
-			}
+	"titre": "Comparative and Superlative Adjectives",
+	"audioURL": "../ressources/audio/englesson.mp3",
+	"imgURL": "../ressources/imgs/englesson.jpg",
+	"lessons": [
+		{
+			"texte": "Comparative adjectives are used to compare two things or people to each other.",
+			"exemples": [
+				{
+					"citation": "A bus is bigger than a car."
+				},
+				{
+					"citation": "Bill is older than Harry."
+				}
+			]
+		},
+		{
+			"texte": "Superlative adjectives are used to compare one member of a group to the whole group. We use the with a superlative adjective.",
+			"exemples": [
+				{
+					"citation": "The Nile is the longest river in the world."
+				},
+				{
+					"citation": "In our class Maria is the oldest."
+				}
+			]
+		}
 	]
 }
+

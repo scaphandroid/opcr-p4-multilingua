@@ -2,11 +2,11 @@ angular.module('starter.services', [])
 
 .factory('Courses', function($http) {
 
-  var cours = [];
-
+  //on ne récupère ici que le cours en anglais dans le cadre du prototype
+  var coursEN = [];
   $http.get('../ressources/jsons/courseseng.json')
     .then(function(response){
-        angular.copy(response.data, cours);
+        angular.copy(response.data, coursEN);
     },function(error){
         $log.error(error);
   });
@@ -17,7 +17,7 @@ angular.module('starter.services', [])
         return coursESP;
       }
       if (language === 'EN'){
-        return cours;
+        return coursEN;
       }
       if (language === 'DEU'){
         return coursDEU;
