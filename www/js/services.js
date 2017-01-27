@@ -4,38 +4,42 @@ angular.module('starter.services', [])
 
   //on ne récupère ici que le cours en anglais dans le cadre du prototype
   var coursEN = [];
+
   $http.get('../ressources/jsons/courseseng.json')
     .then(function(response){
-        angular.copy(response.data, coursEN);
+      angular.copy(response.data, coursEN);
     },function(error){
-        $log.error(error);
+      console.log(error);
   });
 
   return {
     get: function(language){
-      if (language === 'ESP'){
-        return coursESP;
-      }
-      if (language === 'EN'){
+      if (language === 'EN') {
         return coursEN;
-      }
-      if (language === 'DEU'){
-        return coursDEU;
-      }
-      if (language === 'PORT'){
-        return coursPORT;
       }
     }
   };
 })
 
-.factory('Planning', function() {
+.factory('Planning', function($http) {
 
-  var planning = '{ 	"formations": [ 		{"titre": "first"}, 		{ 			"lieux": 				[ 					{"ville": "Paris"}, 					{"rue": "12 rue Henri Lemoine"}, 					{"code_postal": "75013"} 				] 		}, 		{ 			"date": 				[ 					{"jour": "12"}, 					{"mois": "fevrier"}, 					{"annee": "2017"}, 					{"heure": "12"}, 					{"minutes": "30"} 				] 		}, 		{"url": ""} 	] }';
+  //on ne récupère ici que les formations en anglais, dans le cadre du prototype
+  var planningEN = {};
+
+  var url = 'test';
+
+  $http.get('../ressources/jsons/planningen.json')
+    .then(function(response){
+      angular.copy(response.data, planningEN);
+    },function(error){
+      console.log(error);
+  });
 
   return {
-    get: function() {
-      return JSON.parse(planning);
+    get: function(language) {
+      if (language === 'EN') {
+        return planningEN;
+      }
     }
   }
 })

@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
 
 .controller('PlanningCtrl', function($scope, Planning) {
 
-  $scope.planning = Planning.get();
+  $scope.planning = Planning.get('EN');
   console.log($scope.planning);
 })
 
