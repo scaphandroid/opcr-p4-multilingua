@@ -9,14 +9,14 @@
       <source src="{{ courses.audioURL }}">
     </audio>
 
-    <div ng-repeat="lesson in courses.lessons">
+    <div ng-repeat="lesson in courses.lessons" class="cards">
      <p class="text-left text-lesson">{{ lesson.texte }}</p>
      <h4 class="text-left">Examples :</h4>
-     <ion-list>
-       <ion-item ng-repeat="exemple in lesson.exemples" class="back-color">
-         {{ exemple.citation }}
-       </ion-item>
-     </ion-list>
+     <div class="cards">
+       <div ng-repeat="exemple in lesson.exemples" class="back-color item item-text-wrap">
+         <p>{{ exemple.citation }}</p>
+       </div>
+     </div>
     </div>
 
     <div class="padding text-center">
