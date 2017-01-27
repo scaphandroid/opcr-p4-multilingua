@@ -1,7 +1,7 @@
 {
   "formations": [
       {
-          "titre": "first",
+          "titre": "Your first english lesson",
           "lieux": {
             "ville": "Paris",
             "rue": "12 rue Henri Lemoine",
@@ -9,12 +9,30 @@
           },
           "date": {
             "jour": "12",
-            "mois": "fevrier",
+            "mois": "02",
             "annee": "2017",
-            "heure": "12",
-            "minutes": "30"
+            "heure": "2",
+            "minutes": "30",
+            "am_pm": "PM"
           },
           "url": ""
+      },
+      {
+        "titre": "Your second english lesson",
+        "lieux": {
+          "ville": "Paris",
+          "rue": "12 rue Henri Lemoine",
+          "code_postal": "75013"
+        },
+        "date": {
+          "jour": "16",
+          "mois": "02",
+          "annee": "2017",
+          "heure": "2",
+          "minutes": "30",
+          "am_pm": "PM"
+        },
+        "url": ""
       }
   ]
 }

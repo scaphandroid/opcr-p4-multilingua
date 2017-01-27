@@ -3,13 +3,32 @@
 
     <h1>Our next formations</h1>
 
-    <div ng-repeat="formation in planning.formations" class="cards">
-      <div class="item item-divider">
-        {{formation.titre}}
-      </div>
-      <div class="item item-text-wrap">
+    <div ng-repeat="formation in planning.formations" class="cards formation">
 
+      <div class="item item-divider">
+        <strong>{{formation.titre}}</strong>
       </div>
+
+      <ul class="item item-text-wrap">
+
+        <li class="row row-center">
+          <i class="col icon ion-clock"></i>
+          <div class="col col-90">
+            {{formation.date.annee}}/{{formation.date.mois}}/{{formation.date.annee}}
+            <br>
+            {{formation.date.heure}}:{{formation.date.minutes}} {{formation.date.am_pm}}
+          </div>
+        </li>
+
+        <li class="row row-center">
+          <i class="col icon ion-home"></i>
+          <div class="col col-90">
+            {{formation.lieux.rue}}
+            <br>
+            {{formation.lieux.code_postal}} {{formation.lieux.ville}}
+          </div>
+        </li>
+      </ul>
     </div>
   </ion-content>
 </ion-view>
