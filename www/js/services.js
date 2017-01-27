@@ -27,6 +27,17 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('Planning', function() {
+
+  var planning = '{ 	"formations": [ 		{"titre": "first"}, 		{ 			"lieux": 				[ 					{"ville": "Paris"}, 					{"rue": "12 rue Henri Lemoine"}, 					{"code_postal": "75013"} 				] 		}, 		{ 			"date": 				[ 					{"jour": "12"}, 					{"mois": "fevrier"}, 					{"annee": "2017"}, 					{"heure": "12"}, 					{"minutes": "30"} 				] 		}, 		{"url": ""} 	] }';
+
+  return {
+    get: function() {
+      return JSON.parse(planning);
+    }
+  }
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
