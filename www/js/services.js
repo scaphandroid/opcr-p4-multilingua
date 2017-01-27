@@ -26,8 +26,6 @@ angular.module('starter.services', [])
   //on ne récupère ici que les formations en anglais, dans le cadre du prototype
   var planningEN = {};
 
-  var url = 'test';
-
   $http.get('../ressources/jsons/planningen.json')
     .then(function(response){
       angular.copy(response.data, planningEN);
