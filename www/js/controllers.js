@@ -11,6 +11,10 @@ angular.module('starter.controllers', [])
 
   $scope.courses = Courses.get('EN');
   console.log($scope.courses);
+
+  $scope.audioPlayer = function() {
+     console.log('play');
+  }
 })
 
 .controller('PlanningCtrl', function($scope, Planning) {

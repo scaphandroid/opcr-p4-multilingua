@@ -21,6 +21,13 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('Audio', function(){
+
+  //on récupère ici la référence du fichier audio
+  var audioFile = storage.ref
+
+})
+
 .factory('Planning', function($http) {
 
   //on ne récupère ici que les formations en anglais, dans le cadre du prototype
