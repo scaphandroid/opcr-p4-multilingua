@@ -9,8 +9,11 @@ angular.module('starter.controllers', [])
 
 .controller('CoursesCtrl', function($scope, Courses) {
 
-  $scope.courses = Courses.get('EN');
-  console.log($scope.courses);
+  // on récupère la leçon en fonction du language et de la date désirée via le service Courses
+  Courses.get('eng', '').success( function (response) {
+    $scope.courses = response;
+    console.log($scope.courses);
+  });
 
   $scope.audioPlayer = function() {
      console.log('play');
@@ -19,8 +22,10 @@ angular.module('starter.controllers', [])
 
 .controller('PlanningCtrl', function($scope, Planning) {
 
-  $scope.planning = Planning.get('EN');
-  console.log($scope.planning);
+  Planning.get('eng').success( function (response) {
+    $scope.planning = response;
+    console.log($scope.planning);
+  });
 })
 
 .controller('ContactsCtrl', function($scope) {})

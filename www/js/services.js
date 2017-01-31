@@ -2,44 +2,23 @@ angular.module('starter.services', [])
 
 .factory('Courses', function($http) {
 
-  //on ne récupère ici que le cours en anglais dans le cadre du prototype
-  var coursEN = [];
-
-  $http.get('../ressources/jsons/courseseng.json')
-    .then(function(response){
-      angular.copy(response.data, coursEN);
-    },function(error){
-      console.log(error);
-  });
-
+  //est utilisé ici en local mais pourra être adapté à une api
   return {
-    get: function(language){
-      if (language === 'EN') {
-        return coursEN;
-      }
+    get: function(language, date){
+      return  $http.get('../ressources/jsons/courses' + language + date + '.json');
     }
   };
 })
 
 .factory('Planning', function($http) {
 
-  //on ne récupère ici que les formations en anglais, dans le cadre du prototype
-  var planningEN = {};
-
-  $http.get('../ressources/jsons/planningen.json')
-    .then(function(response){
-      angular.copy(response.data, planningEN);
-    },function(error){
-      console.log(error);
-  });
-
+  //est utilisé ici en local mais pourra être adapté à une api
   return {
-    get: function(language) {
-      if (language === 'EN') {
-        return planningEN;
-      }
+    // récupère le planning général pour une langue
+    get: function(language){
+        return  $http.get('../ressources/jsons/planning' + language + '.json');
     }
-  }
+  };
 })
 
 .factory('Chats', function() {
