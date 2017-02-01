@@ -47,7 +47,10 @@ angular.module('starter.services', [])
 
   //on trouve ici les termes du layout de cette page pour chaque language
   var layouteng = {
-    titrePageStandart: 'Get in touch with Multilingua'
+    titrePageStandart: 'Get in touch with Multilingua',
+    titreMessage: 'Message title',
+    contenuMessage: 'Your message here',
+    envoyerButton: 'SEND'
   }
 
   return {

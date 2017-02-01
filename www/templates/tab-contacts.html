@@ -4,6 +4,19 @@
     <h1>{{ layout.titrePageStandart }}</h1>
 
     <!-- TODO devra se transformer en chat si il s'agit d'un étudiant -->
+    <ion-list>
 
+      <ion-item>
+        <input type="text" placeholder={{layout.titreMessage}}>
+      </ion-item>
+
+      <ion-item>
+        <textarea placeholder={{layout.contenuMessage}}></textarea>
+      </ion-item>
+    </ion-list>
+
+    <div class="padding text-center">
+      <button class="button button-positive">{{ layout.envoyerButton }}</button>
+    </div>
   </ion-content>
 </ion-view>
