@@ -47,6 +47,15 @@ a{
     color: #266190;
 }
 
+textarea{
+    min-height: 100px;
+}
+
+input, textarea{
+    min-width: 100%;
+    max-width: 100%;
+}
+
 .button.button-positive{
     background-color: #54CAF5;
     color: black;
@@ -73,11 +82,6 @@ a{
     text-align: center;
 }
 
-textarea{
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100px;
-}
 
 
 
