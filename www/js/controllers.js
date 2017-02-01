@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup) {
+    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $state) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
@@ -51,17 +51,17 @@ angular.module('starter.controllers', [])
 
         $scope.startExercices = function() {
             //on charges les exercices correspondants à la leçon en cours
-            var exercices = {};
+            //et on redirige vers la page d'exercice avec ces données
             Courses.get_exercices('eng', '').success( function (response) {
-                $scope.courses = response;
+                console.log(response);
+                $state.go('exercices');
+                console.log($state);
             }).error( function(error) {
                 console.log(error);
                 $ionicPopup.alert({
                     title: 'Erreur dans le chargement des exercices !'
                 });
             });
-            //on redirige vers la page d'exercice avec ces données
-
         }
     })
 
@@ -106,7 +106,8 @@ angular.module('starter.controllers', [])
         $scope.layout = Parameters.get_layout('eng');
     })
 
-    .controller('ExoCtrl', function($scope) {
+    .controller('ExercicesCtrl', function($scope) {
 
+        console.log('test');
 
     });
