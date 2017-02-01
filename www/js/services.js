@@ -50,7 +50,11 @@ angular.module('starter.services', [])
             titrePageStandart: 'Get in touch with Multilingua',
             titreMessage: 'Message title',
             contenuMessage: 'Your message here',
-            envoyerButton: 'SEND'
+            envoyerButton: 'SEND',
+            erreurTitre: 'Missing informations',
+            erreurMsg: 'You message need to have a title and content !',
+            confirmationTitre: 'Message send',
+            confirmationMsg: 'Thanks we ll get in touch soon !'
         };
 
         return {

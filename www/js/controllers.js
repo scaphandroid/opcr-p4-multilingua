@@ -63,20 +63,19 @@ angular.module('starter.controllers', [])
         $scope.msg = {};
 
         // on récupère les éléments du layout qui dépendent de la langue
-        $scope.layout = Contacts.get_layout('eng');
+        var layout = Contacts.get_layout('eng');
+        $scope.layout = layout;
 
         $scope.showConfirm = function(msg) {
-            console.log(msg);
-            //TODO message en fonction de la langue
             if(!msg.titre || !msg.contenu ){
                 $ionicPopup.alert({
-                    title: 'Missing informations',
-                    template: 'You message need to have a title and content !'
+                    title: layout.erreurTitre,
+                    template: layout.erreurMsg
                 });
             }else{
                 $ionicPopup.alert({
-                    title: 'Message send',
-                    template: 'Thanks we ll get in touch soon !'
+                    title: layout.confirmationTitre,
+                    template: layout.confirmationMsg
                 });
             }
         }
