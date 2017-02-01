@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $state) {
+    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
@@ -50,12 +50,11 @@ angular.module('starter.controllers', [])
         }
 
         $scope.startExercices = function() {
-            //on charges les exercices correspondants à la leçon en cours
-            //et on redirige vers la page d'exercice avec ces données
+            // on charge les données d'exercice
+            // et on redirige vers la page d'exercice
             Courses.get_exercices('eng', '').success( function (response) {
-                console.log(response);
-                $state.go('exercices');
-                console.log($state);
+                $rootScope.exercices = response.exercices;
+                $state.go('exercices', {'numeroexo': 0});
             }).error( function(error) {
                 console.log(error);
                 $ionicPopup.alert({
@@ -106,8 +105,7 @@ angular.module('starter.controllers', [])
         $scope.layout = Parameters.get_layout('eng');
     })
 
-    .controller('ExercicesCtrl', function($scope) {
-
-        console.log('test');
-
+    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams) {
+        console.log($stateParams.numeroexo);
+        console.log($rootScope.exercices);
     });

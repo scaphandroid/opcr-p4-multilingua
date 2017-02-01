@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             })
 
             .state('exercices', {
-                url: '/exercices',
+                url: '/exercices/:numeroexo',
                 templateUrl: 'templates/exercices.html',
                 controller: 'ExercicesCtrl'
             });
