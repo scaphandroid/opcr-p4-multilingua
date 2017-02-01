@@ -1,8 +1,30 @@
 <ion-view view-title="Exercices">
     <ion-content class="padding text-center back-color">
 
-        {{exo.intitule}}
+        <a href="#/tab/courses">Retour au cours</a>
 
-        <button ng-click="submit()">submit</button>
+        <h1>Exercices {{numeroexo}}</h1>
+
+        <h4>{{exo.intitule}}</h4>
+
+        <div ng-switch on="exo.type">
+            <div ng-switch-when="choix multiples">
+                <ion-list ng-repeat="choix in exo.choix">
+                    <ion-checkbox>{{choix}}</ion-checkbox>
+                </ion-list>
+            </div>
+            <div ng-switch-when="phrase">
+                <ion-list>
+                    <ion-item>{{exo.parts[0]}}</ion-item>
+                    <ion-item>{{exo.parts[1]}}</ion-item>
+                </ion-list>
+            </div>
+            <div ng-switch-when="choix simple">
+                <ion-list ng-repeat="choix in exo.choix">
+                    <ion-radio>{{choix}}</ion-radio>
+                </ion-list>
+            </div>
+        </div>
+        <button class="button button-positive" ng-click="submit()">submit</button>
     </ion-content>
 </ion-view>

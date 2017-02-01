@@ -107,6 +107,8 @@ angular.module('starter.controllers', [])
 
     .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state) {
 
+        //TODO il faudra prévoir le chargement du layout pour la langue
+
         // on récupère les données des exercices et le numéro d'exercice en cours
         var numeroexo = parseInt($stateParams.numeroexo);
         var exercices = $rootScope.exercices;
@@ -114,6 +116,7 @@ angular.module('starter.controllers', [])
 
         if( numeroexo < exercices.nbexercices){
             $scope.exo = exercices.exo[$stateParams.numeroexo];
+            $scope.numeroexo = numeroexo+1;
         }else{
             //TODO retourner au cours avec une erreur
         }

@@ -19,8 +19,8 @@
         "intitule": "Complete the sentence",
         "type": "phrase",
         "parts": [
-          {"1": "A high speed train is "},
-          {"2": "than a metro."}
+          "A high speed train is ",
+          "than a metro."
         ],
         "reponse": "faster"
       },
@@ -28,8 +28,8 @@
         "intitule": "Choose the correct answer",
         "type": "choix simple",
         "choix": [
-          {"1": "choice 1"},
-          {"2": "choice 2"}
+          "choice 1",
+          "choice 2"
         ],
         "reponse": "1"
       }
