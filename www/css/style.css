@@ -8,6 +8,29 @@ ion-content, .back-color{
     background-color: #E0E4F2;
 }
 
+.tabs-striped.tabs-background-positive .tabs {
+    background-color: #266190;
+    border-color: #266190;
+}
+.tabs-background-positive .tabs,
+.tabs-background-positive > .tabs {
+    background-color: #266190;
+    background-image: linear-gradient(0deg, #266190, #266190 50%, transparent 50%);
+    background-color: #266190;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item {
+    color: #f26513;
+}
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+    color: #f26513;
+}
+
+ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.activated {
+    border-color: #f26513;
+    color: #f26513;
+}
+
 h1{
     font-size: 28px;
 }
