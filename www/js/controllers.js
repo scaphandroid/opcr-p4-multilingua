@@ -7,6 +7,7 @@ angular.module('starter.controllers', [])
 
         $scope.signIn = function() {
             // ce login est uniquement pour le prototype
+            // il n'utilise pas de mot de passe pour le moment !
             if($scope.loginData.email === 'utilisateur@multilingua.fr' )
             {
                 $rootScope.user.id = 'utilisateur';
@@ -21,7 +22,7 @@ angular.module('starter.controllers', [])
             }
             else
             {
-                var erreur = $ionicPopup.alert({
+                $ionicPopup.alert({
                     title: 'Erreur !',
                     template: 'Identifiants inconnus !'
                 })
@@ -68,12 +69,12 @@ angular.module('starter.controllers', [])
             console.log(msg);
             //TODO message en fonction de la langue
             if(!msg.titre || !msg.contenu ){
-                var errorPopup = $ionicPopup.alert({
+                $ionicPopup.alert({
                     title: 'Missing informations',
                     template: 'You message need to have a title and content !'
                 });
             }else{
-                var confirmPopup = $ionicPopup.alert({
+                $ionicPopup.alert({
                     title: 'Message send',
                     template: 'Thanks we ll get in touch soon !'
                 });
@@ -82,7 +83,7 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ParametersCtrl', function($scope, Parameters) {
-        
+
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
     });
