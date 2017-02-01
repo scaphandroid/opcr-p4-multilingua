@@ -1,27 +1,27 @@
 <ion-view view-title="Courses">
-  <ion-content class="padding text-center back-color">
+    <ion-content class="padding text-center back-color">
 
-    <h1>{{ courses.titre }} </h1>
+        <h1>{{ courses.titre }} </h1>
 
-    <!--
-    <div class="row">
-      <img class="ion-images img-lesson" src="{{ courses.imgURL }}">
-    </div>-->
+        <!--
+        <div class="row">
+          <img class="ion-images img-lesson" src="{{ courses.imgURL }}">
+        </div>-->
 
-    <img id="audioicone" src="../img/audio-volume.png" ng-click="audioPlayer(courses.audioURL)">
+        <img id="audioicone" src="../img/audio-volume.png" ng-click="audioPlayer(courses.audioURL)">
 
-    <div ng-repeat="lesson in courses.lessons" class="cards">
-     <p class="text-left text-lesson">{{ lesson.texte }}</p>
-     <h4 class="text-left">Examples :</h4>
-     <div class="cards">
-       <div ng-repeat="exemple in lesson.exemples" class="back-color item item-text-wrap">
-         <p>{{ exemple.citation }}</p>
-       </div>
-     </div>
-    </div>
+        <div ng-repeat="lesson in courses.lessons" class="cards">
+            <p class="text-left text-lesson">{{ lesson.texte }}</p>
+            <h4 class="text-left">Examples :</h4>
+            <div class="cards">
+                <div ng-repeat="exemple in lesson.exemples" class="back-color item item-text-wrap">
+                    <p>{{ exemple.citation }}</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="padding text-center">
-      <button class="button button-positive">{{ layout.exerciceButton }}</button>
-    </div>
-  </ion-content>
+        <div class="padding text-center">
+            <button class="button button-positive">{{ layout.exerciceButton }}</button>
+        </div>
+    </ion-content>
 </ion-view>

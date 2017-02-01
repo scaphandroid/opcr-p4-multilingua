@@ -7,87 +7,87 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+    .run(function($ionicPlatform) {
+        $ionicPlatform.ready(function() {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-
-  //la page de login apparait à l'ouverture de l'application
-  .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'LoginCtrl'
-  })
-
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack
-
-  .state('tab.courses', {
-    url: '/courses',
-    views: {
-      'tab-courses': {
-        templateUrl: 'templates/tab-courses.html',
-        controller: 'CoursesCtrl'
-      }
-    }
-  })
-
-  .state('tab.planning', {
-      url: '/planning',
-      views: {
-        'tab-planning': {
-          templateUrl: 'templates/tab-planning.html',
-          controller: 'PlanningCtrl'
-        }
-      }
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
+        });
     })
 
-  .state('tab.contacts', {
-    url: '/contacts',
-    views: {
-      'tab-contacts': {
-        templateUrl: 'templates/tab-contacts.html',
-        controller: 'ContactsCtrl'
-      }
-    }
-  })
+    .config(function($stateProvider, $urlRouterProvider) {
 
-  .state('tab.parameters', {
-    url: '/parameters',
-    views: {
-      'tab-parameters': {
-        templateUrl: 'templates/tab-parameters.html',
-        controller: 'ParametersCtrl'
-      }
-    }
-  });
+        // Ionic uses AngularUI Router which uses the concept of states
+        // Learn more here: https://github.com/angular-ui/ui-router
+        // Set up the various states which the app can be in.
+        // Each state's controller can be found in controllers.js
+        $stateProvider
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('login');
+        //la page de login apparait à l'ouverture de l'application
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
+            })
 
-});
+            // setup an abstract state for the tabs directive
+            .state('tab', {
+                url: '/tab',
+                abstract: true,
+                templateUrl: 'templates/tabs.html'
+            })
+
+            // Each tab has its own nav history stack
+
+            .state('tab.courses', {
+                url: '/courses',
+                views: {
+                    'tab-courses': {
+                        templateUrl: 'templates/tab-courses.html',
+                        controller: 'CoursesCtrl'
+                    }
+                }
+            })
+
+            .state('tab.planning', {
+                url: '/planning',
+                views: {
+                    'tab-planning': {
+                        templateUrl: 'templates/tab-planning.html',
+                        controller: 'PlanningCtrl'
+                    }
+                }
+            })
+
+            .state('tab.contacts', {
+                url: '/contacts',
+                views: {
+                    'tab-contacts': {
+                        templateUrl: 'templates/tab-contacts.html',
+                        controller: 'ContactsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.parameters', {
+                url: '/parameters',
+                views: {
+                    'tab-parameters': {
+                        templateUrl: 'templates/tab-parameters.html',
+                        controller: 'ParametersCtrl'
+                    }
+                }
+            });
+
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('login');
+
+    });
