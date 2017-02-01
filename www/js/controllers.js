@@ -105,7 +105,27 @@ angular.module('starter.controllers', [])
         $scope.layout = Parameters.get_layout('eng');
     })
 
-    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams) {
-        console.log($stateParams.numeroexo);
-        console.log($rootScope.exercices);
+    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state) {
+
+        // on récupère les données des exercices et le numéro d'exercice en cours
+        var numeroexo = parseInt($stateParams.numeroexo);
+        var exercices = $rootScope.exercices;
+        console.log(numeroexo);
+
+        if( numeroexo < exercices.nbexercices){
+            $scope.exo = exercices.exo[$stateParams.numeroexo];
+        }else{
+            //TODO retourner au cours avec une erreur
+        }
+
+        //lors du submit, soit on recharge la page d'exerices au numéro suivant
+        //soit, si on est au dernier exercice, on passe au score
+        $scope.submit = function() {
+
+            //TODO on controlera ici la réponse, affichage d'un pop et mise à jour du score
+
+            if( (numeroexo+1) < exercices.nbexercices ){
+                $state.go('exercices', {'numeroexo': numeroexo+1});
+            }
+        }
     });
