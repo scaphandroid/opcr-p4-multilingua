@@ -1,4 +1,34 @@
 <ion-view view-title="Parameters">
-    <ion-content>
+    <ion-content class="padding text-center back-color">
+
+        <h1>{{layout.titrePage}}</h1>
+
+        <ion-list class="text-left padding">
+
+            <ion-item>
+                {{layout.language}}
+                <ion-list>
+                    <ion-radio>English</ion-radio>
+                    <ion-radio>Español</ion-radio>
+                    <ion-radio>Deutch</ion-radio>
+                    <ion-radio>Português</ion-radio>
+                </ion-list>
+            </ion-item>
+
+            <ion-item class="item item-toggle">
+                {{layout.notifications}}
+                <label class="toggle">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </ion-item>
+
+            <ion-item>
+                {{layout.login}} <!-- TODO il faudra indiquer ici l'utilisateur--><br>
+                <button class="button button-positive">{{ layout.logoutButton }}</button>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>

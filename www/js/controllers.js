@@ -42,8 +42,8 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ParametersCtrl', function($scope) {
-        $scope.settings = {
-            enableFriends: true
-        };
+    .controller('ParametersCtrl', function($scope, Parameters) {
+
+        // on récupère les éléments du layout qui dépendent de la langue
+        $scope.layout = Parameters.get_layout('eng');
     });

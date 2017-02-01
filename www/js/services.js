@@ -51,7 +51,7 @@ angular.module('starter.services', [])
             titreMessage: 'Message title',
             contenuMessage: 'Your message here',
             envoyerButton: 'SEND'
-        }
+        };
 
         return {
             get_layout: function(language){
@@ -60,6 +60,26 @@ angular.module('starter.services', [])
                 }
             }
         };
+    })
+
+    .factory('Parameters', function() {
+
+        //on trouve ici les termes du layout de cette page pour chaque language
+        var layouteng = {
+            titrePage: 'Set up your application',
+            language: 'Language',
+            notifications: 'Notifications',
+            login: 'You are logged as',
+            logoutButton: 'LOG OUT'
+        };
+
+        return {
+            get_layout: function(language) {
+                if(language = 'eng'){
+                    return layouteng;
+                }
+            }
+        }
     })
 
     .factory('Chats', function() {
