@@ -45,6 +45,7 @@ angular.module('starter.controllers', [])
 
         $scope.showConfirm = function(msg) {
             console.log(msg);
+            //TODO message en fonction de la langue
             if(!msg.titre || !msg.contenu ){
                 var errorPopup = $ionicPopup.alert({
                     title: 'Missing informations',
