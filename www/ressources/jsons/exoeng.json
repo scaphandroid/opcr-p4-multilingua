@@ -1,0 +1,38 @@
+{
+  "exercices": {
+    "nbexercices": "3",
+    "exo": [
+      {
+        "intitule": "Select all the correct sentences",
+        "type": "choix multiples",
+        "choix": [
+          "sentence 1",
+          "sentence 2",
+          "sentence 3"
+        ],
+        "reponses": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "intitule": "Complete the sentence",
+        "type": "phrase",
+        "parts": [
+          {"1": "A high speed train is "},
+          {"2": "than a metro."}
+        ],
+        "reponse": "faster"
+      },
+      {
+        "intitule": "Choose the correct answer",
+        "type": "choix simple",
+        "choix": [
+          {"1": "choice 1"},
+          {"2": "choice 2"}
+        ],
+        "reponse": "1"
+      }
+    ]
+  }
+}
