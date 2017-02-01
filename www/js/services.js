@@ -7,6 +7,7 @@ angular.module('starter.services', [])
             exerciceButton: 'PRACTICE'
         };
 
+        // TODO prévoir un fallback si pas d'exercice ? ou indiquer de l'implanter sur le serveur ?
         //est utilisé ici en local mais pourra être adapté à une api
         return {
             // pour récupérer la leçon du jour en fonction de la date et la langue désirée
@@ -14,10 +15,14 @@ angular.module('starter.services', [])
                 return  $http.get('../ressources/jsons/courses' + language + date + '.json');
             },
             // pour récupérer les éléments de layout en fonction de la langue désirée
-            get_layout: function(language) {
+            get_layout: function(language){
                 if(language = 'eng'){
                     return layouteng;
                 }
+            },
+            // pour récupérer les exercices du jour en fonction de la date et la langue désirée
+            get_exercices: function(language, date){
+                return $http.get('../ressources/jsons/exo' + language + date + '.json');
             }
         };
     })

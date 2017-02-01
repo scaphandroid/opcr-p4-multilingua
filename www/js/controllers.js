@@ -38,8 +38,8 @@ angular.module('starter.controllers', [])
         // on récupère la leçon en fonction du language et de la date désiré via le service Courses
         Courses.get('eng', '').success( function (response) {
             $scope.courses = response;
-            console.log($scope.courses);
         }).error( function() {
+            console.log(error);
             $ionicPopup.alert({
                 title: 'Erreur dans le chargement de la leçon !'
             });
@@ -49,10 +49,18 @@ angular.module('starter.controllers', [])
             console.log('play ' + src);
         }
 
-        //TODO implanter ici la gestion du bouton exercice,
-        // il doit charger les exo correspondants à la leçon
-        //puis diriger vers la page d'exercice
         $scope.startExercices = function() {
+            //on charges les exercices correspondants à la leçon en cours
+            var exercices = {};
+            Courses.get_exercices('eng', '').success( function (response) {
+                $scope.courses = response;
+            }).error( function(error) {
+                console.log(error);
+                $ionicPopup.alert({
+                    title: 'Erreur dans le chargement des exercices !'
+                });
+            });
+            //on redirige vers la page d'exercice avec ces données
 
         }
     })
@@ -100,5 +108,5 @@ angular.module('starter.controllers', [])
 
     .controller('ExoCtrl', function($scope) {
 
-        console.log()
+
     });
