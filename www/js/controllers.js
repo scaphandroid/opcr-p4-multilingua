@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('CoursesCtrl', function($scope, Courses) {
+    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
@@ -39,10 +39,21 @@ angular.module('starter.controllers', [])
         Courses.get('eng', '').success( function (response) {
             $scope.courses = response;
             console.log($scope.courses);
+        }).error( function() {
+            $ionicPopup.alert({
+                title: 'Erreur dans le chargement de la leçon !'
+            });
         });
 
         $scope.audioPlayer = function(src ) {
             console.log('play ' + src);
+        }
+
+        //TODO implanter ici la gestion du bouton exercice,
+        // il doit charger les exo correspondants à la leçon
+        //puis diriger vers la page d'exercice
+        $scope.startExercices = function() {
+
         }
     })
 
@@ -85,4 +96,9 @@ angular.module('starter.controllers', [])
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
+    })
+
+    .controller('ExoCtrl', function($scope) {
+
+        console.log()
     });
