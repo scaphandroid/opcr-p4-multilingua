@@ -43,6 +43,22 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('Contacts', function() {
+
+  //on trouve ici les termes du layout de cette page pour chaque language
+  var layouteng = {
+    titrePageStandart: 'Get in touch with Multilingua'
+  }
+
+  return {
+    get_layout: function(language){
+      if(language = 'eng'){
+        return layouteng;
+      }
+    }
+  };
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

@@ -35,7 +35,12 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('ContactsCtrl', function($scope) {})
+.controller('ContactsCtrl', function($scope, Contacts) {
+
+  // on récupère les éléments du layout qui dépendent de la langue
+  $scope.layout = Contacts.get_layout('eng');
+
+})
 
 .controller('ParametersCtrl', function($scope) {
   $scope.settings = {
