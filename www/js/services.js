@@ -2,21 +2,43 @@ angular.module('starter.services', [])
 
 .factory('Courses', function($http) {
 
+  //on trouve ici les termes du layout de cette page pour chaque language
+  var layouteng = {
+    exerciceButton: 'PRACTICE'
+  };
+
   //est utilisé ici en local mais pourra être adapté à une api
   return {
+    // pour récupérer la leçon du jour en fonction de la date et la langue désirée
     get: function(language, date){
       return  $http.get('../ressources/jsons/courses' + language + date + '.json');
+    },
+    // pour récupérer les éléments de layout en fonction de la langue désirée
+    get_layout: function(language) {
+      if(language = 'eng'){
+        return layouteng;
+      }
     }
   };
 })
 
 .factory('Planning', function($http) {
 
+  //on trouve ici les termes du layout de cette page pour chaque language
+  var layouteng = {
+      titrePage: 'Our next formations'
+  };
+
   //est utilisé ici en local mais pourra être adapté à une api
   return {
     // récupère le planning général pour une langue
     get: function(language){
-        return  $http.get('../ressources/jsons/planning' + language + '.json');
+      return  $http.get('../ressources/jsons/planning' + language + '.json');
+    },
+    get_layout: function(language){
+      if(language = 'eng'){
+        return layouteng;
+      }
     }
   };
 })

@@ -9,6 +9,9 @@ angular.module('starter.controllers', [])
 
 .controller('CoursesCtrl', function($scope, Courses) {
 
+  // on récupère les éléments du layout qui dépendent de la langue
+  $scope.layout = Courses.get_layout('eng');
+
   // on récupère la leçon en fonction du language et de la date désiré via le service Courses
   Courses.get('eng', '').success( function (response) {
     $scope.courses = response;
@@ -21,6 +24,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlanningCtrl', function($scope, Planning) {
+
+  // on récupère les éléments du layout qui dépendent de la langue
+  $scope.layout = Planning.get_layout('eng');
 
   // on récupère le planning en fonction du language désiré via le service Planning
   Planning.get('eng').success( function (response) {
