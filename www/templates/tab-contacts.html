@@ -7,16 +7,16 @@
     <ion-list>
 
       <ion-item>
-        <input type="text" placeholder={{layout.titreMessage}}>
+        <input type="text" placeholder={{layout.titreMessage}} ng-model="msg.titre">
       </ion-item>
 
       <ion-item>
-        <textarea placeholder={{layout.contenuMessage}}></textarea>
+        <textarea placeholder={{layout.contenuMessage}} ng-model="msg.contenu"></textarea>
       </ion-item>
     </ion-list>
 
     <div class="padding text-center">
-      <button class="button button-positive">{{ layout.envoyerButton }}</button>
+      <button class="button button-positive" ng-click="showConfirm(msg)">{{ layout.envoyerButton }}</button>
     </div>
   </ion-content>
 </ion-view>

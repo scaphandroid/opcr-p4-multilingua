@@ -2,6 +2,7 @@ angular.module('starter.controllers', [])
 
     .controller('LoginCtrl', function($scope, $state) {
 
+        //TODO traiter les données d'identification
         $scope.signIn = function() {
             $state.go('tab.courses');
         }
@@ -35,11 +36,27 @@ angular.module('starter.controllers', [])
         });
     })
 
-    .controller('ContactsCtrl', function($scope, Contacts) {
+    .controller('ContactsCtrl', function($scope, Contacts, $ionicPopup) {
+
+        $scope.msg = {};
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Contacts.get_layout('eng');
 
+        $scope.showConfirm = function(msg) {
+            console.log(msg);
+            if(!msg.titre || !msg.contenu ){
+                var errorPopup = $ionicPopup.alert({
+                    title: 'Missing informations',
+                    template: 'You message need to have a title and content !'
+                });
+            }else{
+                var confirmPopup = $ionicPopup.alert({
+                    title: 'Message send',
+                    template: 'Thanks we ll get in touch soon !'
+                });
+            }
+        }
     })
 
     .controller('ParametersCtrl', function($scope, Parameters) {
