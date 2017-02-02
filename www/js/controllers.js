@@ -108,7 +108,7 @@ angular.module('starter.controllers', [])
         $scope.layout = Parameters.get_layout('eng');
     })
 
-    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state) {
+    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup) {
 
         //TODO il faudra prévoir le chargement du layout pour la langue
 
@@ -175,12 +175,28 @@ angular.module('starter.controllers', [])
                 }
             }
 
-            //TODO selon si la réponse est bonne affichage du pop up bonne réponse ou des réponses à indiquer
 
-            if( (numeroexo+1) < exercices.nbexercices ){
-                $state.go('exercices', {'numeroexo': numeroexo+1});
-                console.log(reponsejuste + ' ' + reponseaindiquer + ' ' + $rootScope.user.score);
+            var titrePopUp = '';
+            var msgPopUp = '';
+
+            if(reponsejuste){
+                titrePopUp = 'Bravo !';
+                msgPopUp = 'Réponse juste !';
+            }else{
+                titrePopUp = 'Raté !';
+                msgPopUp = 'Ce qui était juste :<br>' +  reponseaindiquer ;
             }
-            //TODO sinon on est conduit au score (ou alors il est affiché dans un pop up et le ok conduit aux cours
+
+            var popUp = $ionicPopup.alert({
+                title: titrePopUp,
+                template: msgPopUp
+            });
+
+            popUp.then(function(res){
+                if( (numeroexo+1) < exercices.nbexercices ) {
+                    $state.go('exercices', {'numeroexo': numeroexo + 1});
+                }
+                //TODO sinon on est conduit au score (ou alors il est affiché dans un pop up et le ok conduit aux cours
+            })
         }
     });
