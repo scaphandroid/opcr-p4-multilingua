@@ -119,8 +119,6 @@ angular.module('starter.controllers', [])
         // stockera la réponse de l'utilisateur
         $scope.reponse = {};
 
-        console.log(numeroexo);
-
         if( numeroexo < exercices.nbexercices){
             $scope.exo = exercices.exo[$stateParams.numeroexo];
             $scope.numeroexo = numeroexo+1;
@@ -133,23 +131,49 @@ angular.module('starter.controllers', [])
         $scope.submit = function() {
 
             var reponsejuste = false;
-            var reponse = '';
+            var reponseaindiquer = '';
+
+            //TODO il faudra trouver moyen de remettre les cases cochées "à zéro"
+
+            if ($scope.exo.type === 'choix multiples'){
+                var nbCaseCochees = 0;
+                for(reponseCochee in $scope.reponse){
+                    var correct = false;
+                    nbCaseCochees ++;
+                    for(reponsePossible in $scope.exo.reponses){
+                        console.log(reponseCochee + ' ' + $scope.exo.choix[reponsePossible]);
+                        if(reponseCochee === $scope.exo.choix[reponsePossible]){
+                            correct = true;
+                            console.log(correct);
+                        }
+                    }
+                    reponsejuste = correct;
+                    console.log(reponsejuste);
+                }
+                //on vérifie que le nombre de caches cochées correspond au nombre attendu
+                if( nbCaseCochees !== Object.keys($scope.exo.reponses).length ){
+                    reponsejuste = false;
+                }
+
+                //TODO il faudra ici incrémenter le score, et si réponse fause charger la bonne réponse
+            }
 
             if ($scope.exo.type === 'phrase'){
                 //TODO éventuellement le rendre insensible à la casse ?
                 if($scope.reponse.texte === $scope.exo.reponse){
-                    reponsejuste = true
+                    reponsejuste = true;
                     $rootScope.user.score ++;
                 }else{
-                    reponse = $scope.exo.reponse;
+                    reponseaindiquer = $scope.exo.reponse;
                 }
             }
-            //TODO on controlera ici la réponse, affichage d'un pop et mise à jour du score
 
+            //TODO selon si la réponse est bonne affichage du pop up bonne réponse ou des réponses à indiquer
 
             if( (numeroexo+1) < exercices.nbexercices ){
                 $state.go('exercices', {'numeroexo': numeroexo+1});
-                console.log(reponsejuste + ' ' + reponse + ' ' + $rootScope.user.score);
+                console.log(reponsejuste + ' ' + reponseaindiquer + ' ' + $rootScope.user.score);
             }
+            //TODO sinon on est conduit au score (ou alors il est affiché dans un pop up et le ok conduit aux cours
         }
     });

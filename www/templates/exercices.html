@@ -10,7 +10,7 @@
         <div ng-switch on="exo.type">
             <div ng-switch-when="choix multiples">
                 <ion-list ng-repeat="choix in exo.choix">
-                    <ion-checkbox>{{choix}}</ion-checkbox>
+                    <ion-checkbox ng-model="reponse[choix]">{{choix}}</ion-checkbox>
                 </ion-list>
             </div>
             <div ng-switch-when="phrase">
