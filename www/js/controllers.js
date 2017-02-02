@@ -156,6 +156,13 @@ angular.module('starter.controllers', [])
                 }
 
                 //TODO il faudra ici incrémenter le score, et si réponse fause charger la bonne réponse
+                if(reponsejuste){
+                    $rootScope.user.score ++;
+                }else{
+                    for(reponsePossible in $scope.exo.reponses){
+                        reponseaindiquer+= $scope.exo.choix[reponsePossible] + '<br>';
+                    }
+                }
             }
 
             if ($scope.exo.type === 'phrase'){
