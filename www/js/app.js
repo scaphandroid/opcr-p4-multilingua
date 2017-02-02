@@ -9,7 +9,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .run(function($ionicPlatform, $rootScope) {
 
-        $rootScope.user = { id: 'test'};
+        $rootScope.user = { id: 'test', score: 0};
 
 
         $ionicPlatform.ready(function() {

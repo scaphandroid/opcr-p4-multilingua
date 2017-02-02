@@ -32,6 +32,9 @@ angular.module('starter.controllers', [])
 
     .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state) {
 
+        //pour le moment on remet le score à zéro dès que l'on retourne au cours
+        $rootScope.user.score = 0;
+
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
 
@@ -112,6 +115,10 @@ angular.module('starter.controllers', [])
         // on récupère les données des exercices et le numéro d'exercice en cours
         var numeroexo = parseInt($stateParams.numeroexo);
         var exercices = $rootScope.exercices;
+
+        // stockera la réponse de l'utilisateur
+        $scope.reponse = {};
+
         console.log(numeroexo);
 
         if( numeroexo < exercices.nbexercices){
@@ -125,10 +132,24 @@ angular.module('starter.controllers', [])
         //soit, si on est au dernier exercice, on passe au score
         $scope.submit = function() {
 
+            var reponsejuste = false;
+            var reponse = '';
+
+            if ($scope.exo.type === 'phrase'){
+                //TODO éventuellement le rendre insensible à la casse ?
+                if($scope.reponse.texte === $scope.exo.reponse){
+                    reponsejuste = true
+                    $rootScope.user.score ++;
+                }else{
+                    reponse = $scope.exo.reponse;
+                }
+            }
             //TODO on controlera ici la réponse, affichage d'un pop et mise à jour du score
+
 
             if( (numeroexo+1) < exercices.nbexercices ){
                 $state.go('exercices', {'numeroexo': numeroexo+1});
+                console.log(reponsejuste + ' ' + reponse + ' ' + $rootScope.user.score);
             }
         }
     });
