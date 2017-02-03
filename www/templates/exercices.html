@@ -24,7 +24,7 @@
             </div>
             <div ng-switch-when="choix simple">
                 <ion-list ng-repeat="choix in exo.choix">
-                    <ion-radio>{{choix}}</ion-radio>
+                    <ion-radio ng-model="reponse.choix" ng-value="choix">{{choix}}</ion-radio>
                 </ion-list>
             </div>
         </div>

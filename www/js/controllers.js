@@ -32,9 +32,6 @@ angular.module('starter.controllers', [])
 
     .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state) {
 
-        //pour le moment on remet le score à zéro dès que l'on retourne au cours
-        $rootScope.user.score = 0;
-
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
 
@@ -57,7 +54,7 @@ angular.module('starter.controllers', [])
             // et on redirige vers la page d'exercice
             Courses.get_exercices('eng', '').success( function (response) {
                 $rootScope.exercices = response.exercices;
-                $state.go('exercices', {'numeroexo': 0});
+                $state.go('exercices', {'numeroexo': 0, 'score': 0});
             }).error( function(error) {
                 console.log(error);
                 $ionicPopup.alert({
@@ -113,8 +110,10 @@ angular.module('starter.controllers', [])
 
         //TODO il faudra prévoir le chargement du layout pour la langue
 
-        // on récupère les données des exercices et le numéro d'exercice en cours
+        // on récupère les données des exercices, le score et le numéro d'exercice en cours
         var numeroexo = parseInt($stateParams.numeroexo);
+        var score = parseInt($stateParams.score);
+        console.log(score);
         var exercices = $rootScope.exercices;
 
         // stockera la réponse de l'utilisateur
@@ -142,14 +141,11 @@ angular.module('starter.controllers', [])
                     var correct = false;
                     nbCaseCochees ++;
                     for(reponsePossible in $scope.exo.reponses){
-                        console.log(reponseCochee + ' ' + $scope.exo.choix[reponsePossible]);
                         if(reponseCochee === $scope.exo.choix[reponsePossible]){
                             correct = true;
-                            console.log(correct);
                         }
                     }
                     reponsejuste = correct;
-                    console.log(reponsejuste);
                 }
                 //on vérifie que le nombre de caches cochées correspond au nombre attendu
                 if( nbCaseCochees !== Object.keys($scope.exo.reponses).length ){
@@ -158,7 +154,7 @@ angular.module('starter.controllers', [])
 
                 //TODO il faudra ici incrémenter le score, et si réponse fause charger la bonne réponse
                 if(reponsejuste){
-                    $rootScope.user.score ++;
+                    score ++;
                 }else{
                     for(reponsePossible in $scope.exo.reponses){
                         reponseaindiquer+= $scope.exo.choix[reponsePossible] + '<br>';
@@ -170,9 +166,18 @@ angular.module('starter.controllers', [])
                 //TODO éventuellement le rendre insensible à la casse ?
                 if($scope.reponse.texte === $scope.exo.reponse){
                     reponsejuste = true;
-                    $rootScope.user.score ++;
+                    score ++;
                 }else{
                     reponseaindiquer = $scope.exo.reponse;
+                }
+            }
+
+            if ($scope.exo.type === 'choix simple'){
+                if($scope.reponse.choix === $scope.exo.choix[$scope.exo.reponse-1]){
+                    reponsejuste = true;
+                    score ++;
+                }else{
+                    reponseaindiquer = $scope.exo.choix[$scope.exo.reponse-1];
                 }
             }
 
@@ -194,11 +199,15 @@ angular.module('starter.controllers', [])
 
             popUp.then(function(res){
                 if( (numeroexo+1) < exercices.nbexercices ) {
-                    $state.go('exercices', {'numeroexo': numeroexo + 1});
+                    $state.go('exercices', {'numeroexo': numeroexo + 1, 'score': score});
                 } else{
-                    $state.go('score', {'nbexo': exercices.nbexercices})
+                    $state.go('score', {'nbexo': exercices.nbexercices, 'score': score})
                 }
-                //TODO sinon on est conduit au score (ou alors il est affiché dans un pop up et le ok conduit aux cours
             })
         }
+    })
+
+    .controller('ScoreCtrl', function($stateParams, $state, $scope){
+
+        $scope.score = $stateParams.score;
     });

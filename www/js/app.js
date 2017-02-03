@@ -92,12 +92,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             })
 
             .state('score', {
-                url: '/score/:nbexo',
-                templateUrl: 'templates/score.html'
+                url: '/score/:nbexo:score',
+                templateUrl: 'templates/score.html',
+                controller: 'ScoreCtrl'
             })
 
             .state('exercices', {
-                url: '/exercices/:numeroexo',
+                cache: false,
+                url: '/exercices/:numeroexo:score',
                 templateUrl: 'templates/exercices.html',
                 controller: 'ExercicesCtrl'
             });
