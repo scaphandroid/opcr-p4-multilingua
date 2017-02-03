@@ -82,6 +82,13 @@ input, textarea{
     text-align: center;
 }
 
+#poucehaut{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 
 

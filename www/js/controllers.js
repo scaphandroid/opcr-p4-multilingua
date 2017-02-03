@@ -209,5 +209,6 @@ angular.module('starter.controllers', [])
 
     .controller('ScoreCtrl', function($stateParams, $state, $scope){
 
-        $scope.score = $stateParams.score;
+        $scope.score = parseInt($stateParams.score);
+        $scope.nbexo = parseInt($stateParams.nbexo);
     });
