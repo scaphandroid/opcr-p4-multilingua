@@ -12,7 +12,7 @@ angular.module('starter.services', [])
         return {
             // pour récupérer la leçon du jour en fonction de la date et la langue désirée
             get: function(language, date){
-                return  $http.get('../ressources/jsons/courses' + language + date + '.json');
+                return  $http.get('/ressources/jsons/courses' + language + date + '.json');
             },
             // pour récupérer les éléments de layout en fonction de la langue désirée
             get_layout: function(language){
@@ -22,7 +22,7 @@ angular.module('starter.services', [])
             },
             // pour récupérer les exercices du jour en fonction de la date et la langue désirée
             get_exercices: function(language, date){
-                return $http.get('../ressources/jsons/exo' + language + date + '.json');
+                return $http.get('/ressources/jsons/exo' + language + date + '.json');
             }
         };
     })
@@ -38,7 +38,7 @@ angular.module('starter.services', [])
         return {
             // récupère le planning général pour une langue
             get: function(language){
-                return  $http.get('../ressources/jsons/planning' + language + '.json');
+                return  $http.get('/ressources/jsons/planning' + language + '.json');
             },
             get_layout: function(language){
                 if(language = 'eng'){
