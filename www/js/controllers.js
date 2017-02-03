@@ -98,6 +98,7 @@ angular.module('starter.controllers', [])
                     title: layout.confirmationTitre,
                     template: layout.confirmationMsg
                 });
+                //TODO si le message est envoyé il faudra également penser à vider les inputs
             }
         }
     })
@@ -175,7 +176,6 @@ angular.module('starter.controllers', [])
                 }
             }
 
-
             var titrePopUp = '';
             var msgPopUp = '';
 
@@ -195,6 +195,8 @@ angular.module('starter.controllers', [])
             popUp.then(function(res){
                 if( (numeroexo+1) < exercices.nbexercices ) {
                     $state.go('exercices', {'numeroexo': numeroexo + 1});
+                } else{
+                    $state.go('score', {'nbexo': exercices.nbexercices})
                 }
                 //TODO sinon on est conduit au score (ou alors il est affiché dans un pop up et le ok conduit aux cours
             })

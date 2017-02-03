@@ -91,6 +91,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 }
             })
 
+            .state('score', {
+                url: '/score/:nbexo',
+                templateUrl: 'templates/score.html'
+            })
+
             .state('exercices', {
                 url: '/exercices/:numeroexo',
                 templateUrl: 'templates/exercices.html',
