@@ -104,6 +104,8 @@ angular.module('starter.controllers', [])
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
+
+        $scope.languageparam = 'English';
     })
 
     .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup) {
