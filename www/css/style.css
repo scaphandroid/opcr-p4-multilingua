@@ -95,12 +95,27 @@ input, textarea{
     overflow: scroll;
 }
 
+
+.msg{
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
 .msg-teacher{
     text-align: left;
+    background: #007AFF;
+    color: white;
+    float: left;
 }
 
 .msg-student{
     text-align: right;
+    float: right;
+    background-color: #C7C7CC;
 }
 
 

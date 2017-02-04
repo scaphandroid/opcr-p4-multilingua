@@ -5,8 +5,9 @@
 
         <div class="card" id="tchat-card">
             <div ng-repeat="message in conversation.messages">
-                <p ng-if="message.user == user.id" class="msg-student">{{message.content}}</p>
-                <p ng-if="message.user !== user.id" class="msg-teacher">{{message.content}}</p>
+                <div ng-if="message.user == user.id" class="msg-student msg">{{message.content}}</div>
+                <div ng-if="message.user !== user.id" class="msg-teacher msg">{{message.content}}</div>
+                <div class="row"></div>
             </div>
         </div>
 
