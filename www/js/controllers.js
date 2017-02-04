@@ -100,6 +100,10 @@ angular.module('starter.controllers', [])
         }
     })
 
+    .controller('ChatCtrl', function($scope){
+
+    })
+
     .controller('ParametersCtrl', function($scope, Parameters) {
 
         // on récupère les éléments du layout qui dépendent de la langue
