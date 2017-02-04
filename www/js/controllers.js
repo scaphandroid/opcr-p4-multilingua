@@ -2,7 +2,12 @@ angular.module('starter.controllers', [])
 
     .controller('LoginCtrl', function($scope, $state, $rootScope, $ionicPopup) {
 
-        $rootScope.user = {};
+        $rootScope.user = {
+            id: '',
+            type: '',
+            active: true
+        };
+
         $scope.loginData = {};
 
         $scope.signIn = function() {
@@ -12,12 +17,14 @@ angular.module('starter.controllers', [])
             {
                 $rootScope.user.id = 'utilisateur';
                 $rootScope.user.type = 'utilisateur';
+                $rootScope.user.active = true;
                 $state.go('tab.courses');
             }
             else if($scope.loginData.email === 'etudiant@multilingua.fr')
             {
                 $rootScope.user.id = 'etudiant';
                 $rootScope.user.type = 'etudiant';
+                $rootScope.user.active = true;
                 $state.go('tab.courses');
             }
             else
@@ -104,12 +111,16 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ParametersCtrl', function($scope, Parameters) {
+    .controller('ParametersCtrl', function($scope, Parameters, $state) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
 
         $scope.languageparam = 'English';
+
+        $scope.goLogOut = function(){
+            $state.go('login');
+        }
     })
 
     .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup) {

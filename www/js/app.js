@@ -9,7 +9,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .run(function($ionicPlatform, $rootScope) {
 
-        $rootScope.user = { id: 'test', score: 0};
+        //$rootScope.user = { id: 'test', score: 0, active: true};
 
 
         $ionicPlatform.ready(function() {
@@ -47,6 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             .state('tab', {
                 url: '/tab',
                 abstract: true,
+                cache: false,
                 templateUrl: 'templates/tabs.html'
             })
 

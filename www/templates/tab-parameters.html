@@ -27,7 +27,7 @@
 
             <ion-item>
                 {{layout.login}} {{user.id}} <!-- TODO il faudra indiquer ici l'utilisateur--><br>
-                <a class="button button-positive" href="#/login.html">{{ layout.logoutButton }}</a>
+                <button class="button button-positive" ng-click="goLogOut()">{{ layout.logoutButton }}</button>
             </ion-item>
         </ion-list>
     </ion-content>
