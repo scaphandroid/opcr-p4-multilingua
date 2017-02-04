@@ -3,5 +3,10 @@
 
         <h1>{{ layout.titrePage }}</h1>
 
+        <div>
+            <div ng-repeat="message in conversation.messages">
+                <p>{{message.content}}</p>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

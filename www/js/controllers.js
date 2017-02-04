@@ -113,8 +113,8 @@ angular.module('starter.controllers', [])
         $scope.layout = Chat.get_layout('eng');
 
         Chat.get_messages($rootScope.user.id).success( function (response) {
-            $scope.messages= response;
-            console.log($scope.messages);
+            $scope.conversation = response;
+            console.log($scope.conversation);
         });
     })
 
