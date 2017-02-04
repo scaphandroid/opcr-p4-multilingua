@@ -90,5 +90,17 @@ input, textarea{
     margin-bottom: 20px;
 }
 
+#tchat-card{
+    height: 500px;
+    overflow: scroll;
+}
+
+.msg-teacher{
+    text-align: left;
+}
+
+.msg-student{
+    text-align: right;
+}
 
 
