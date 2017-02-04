@@ -13,9 +13,9 @@
 
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
             <label class="item-input-wrapper">
-                <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+                <input type="text" placeholder="Type your message" ng-model="data.message"/>
             </label>
-            <button class="button button-positive" ng-click="sendMessage()">
+            <button class="button button-positive" ng-click="send(data.message)">
                 Send
             </button>
         </ion-footer-bar>

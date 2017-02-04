@@ -109,6 +109,8 @@ angular.module('starter.controllers', [])
 
     .controller('ChatCtrl', function(Chat, $scope, $rootScope){
 
+        $scope.data = {};
+
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Chat.get_layout('eng');
 
@@ -116,6 +118,17 @@ angular.module('starter.controllers', [])
             $scope.conversation = response;
             console.log($scope.conversation);
         });
+
+        $scope.send = function(message){
+            //on n'envoie pas de message vide
+            if(message){
+                var nouveauMsg = {
+                    content: message,
+                    user: $rootScope.user.id
+                };
+                $scope.conversation.messages.push(nouveauMsg);
+            }
+        }
     })
 
     .controller('ParametersCtrl', function($scope, Parameters, $state) {
