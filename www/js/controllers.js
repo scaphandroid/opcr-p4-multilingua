@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state, $cordovaMedia) {
+    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state, $cordovaMedia, $ionicPlatform) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
@@ -45,17 +45,25 @@ angular.module('starter.controllers', [])
         // on récupère la leçon en fonction du language et de la date désiré via le service Courses
         Courses.get('eng', '').success( function (response) {
             $scope.courses = response;
+            // préparation de l'audio
+            var media = new Media($scope.courses.audioURL);
+            console.log(media);
+            var playing = false;
+            //gestion de l'audio
+            $scope.audioPlayer = function(src) {
+                if(!playing){
+                    media.play();
+                    playing = true;
+                }else{
+                    media.pause();
+                }
+            };
         }).error( function() {
             console.log(error);
             $ionicPopup.alert({
                 title: 'Erreur dans le chargement de la leçon !'
             });
         });
-
-        $scope.audioPlayer = function(src) {
-            console.log('play ' + src);
-            $cordovaMedia.newMedia(src);
-        }
 
         $scope.startExercices = function() {
             // on charge les données d'exercice
