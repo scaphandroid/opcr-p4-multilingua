@@ -127,6 +127,7 @@ angular.module('starter.controllers', [])
                     user: $rootScope.user.id
                 };
                 $scope.conversation.messages.push(nouveauMsg);
+                $scope.data = {};
             }
         }
     })
