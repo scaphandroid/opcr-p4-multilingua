@@ -173,9 +173,15 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup) {
+    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $ionicPlatform) {
 
         //TODO il faudra prévoir le chargement du layout pour la langue
+
+        $ionicPlatform.onHardwareBackButton(function() {
+            event.preventDefault();
+            event.stopPropagation();
+            alert('going back');
+        });
 
         // on récupère les données des exercices, le score et le numéro d'exercice en cours
         var numeroexo = parseInt($stateParams.numeroexo);
@@ -200,8 +206,6 @@ angular.module('starter.controllers', [])
             var reponsejuste = false;
             var reponseaindiquer = '';
 
-            //TODO il faudra trouver moyen de remettre les cases cochées "à zéro"
-
             if ($scope.exo.type === 'choix multiples'){
                 var nbCaseCochees = 0;
                 for(reponseCochee in $scope.reponse){
@@ -218,8 +222,6 @@ angular.module('starter.controllers', [])
                 if( nbCaseCochees !== Object.keys($scope.exo.reponses).length ){
                     reponsejuste = false;
                 }
-
-                //TODO il faudra ici incrémenter le score, et si réponse fause charger la bonne réponse
                 if(reponsejuste){
                     score ++;
                 }else{
