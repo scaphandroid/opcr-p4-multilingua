@@ -128,9 +128,13 @@ angular.module('starter.controllers', [])
         $scope.send = function(message){
             //on n'envoie pas de message vide
             if(message){
+                var d = new Date();
+                dformat = d.toLocaleDateString().replace(/:\d+ /, ' ');
+                tformat = d.toLocaleTimeString().replace(/:\d+ /, ' ');
                 var nouveauMsg = {
                     content: message,
-                    user: $rootScope.user.id
+                    user: $rootScope.user.id,
+                    datetime: dformat + ' ' + tformat
                 };
                 $scope.conversation.messages.push(nouveauMsg);
                 $scope.data = {};

@@ -2,43 +2,38 @@
   "messages": [
     {
       "content": "Hello student",
-      "user": "teacher"
+      "user": "teacher",
+      "datetime": "05/02/2017 09:37:26"
     },
     {
       "content": "Nice to meet you teacher",
-      "user": "etudiant"
+      "user": "etudiant",
+      "datetime": "05/02/2017 09:38:36"
     },
     {
-      "content": "Hello student",
-      "user": "teacher"
+      "content": "How are you today ? ",
+      "user": "teacher",
+      "datetime": "05/02/2017 09:39:36"
     },
     {
-      "content": "Nice to meet you teacher",
-      "user": "etudiant"
+      "content": "Fine and you ?",
+      "user": "etudiant",
+      "datetime": "05/02/2017 09:40:36"
     },
     {
-      "content": "Hello student",
-      "user": "teacher"
+      "content": "Me too",
+      "user": "teacher",
+      "datetime": "05/02/2017 09:41:36"
     },
     {
-      "content": "Nice to meet you teacher",
-      "user": "etudiant"
+      "content": "I've a question about the last exercice",
+      "user": "etudiant",
+      "datetime": "05/02/2017 09:42:36"
     },
     {
-      "content": "Hello student",
-      "user": "teacher"
-    },
-    {
-      "content": "Nice to meet you teacher",
-      "user": "etudiant"
-    },
-    {
-      "content": "Hello student",
-      "user": "teacher"
-    },
-    {
-      "content": "Nice to meet you teacher",
-      "user": "etudiant"
+      "content": "Tell me ?",
+      "user": "teacher",
+      "datetime": "05/02/2017 09:43:36"
     }
   ]
 }

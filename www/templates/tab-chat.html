@@ -4,10 +4,20 @@
         <h1>{{ layout.titrePage }}</h1>
 
         <ion-scroll class="card" id="tchat-card" scrollbar-x="false" zooming="false">
+
             <div ng-repeat="message in conversation.messages">
-                <div ng-if="message.user == user.id" class="msg-student msg">{{message.content}}</div>
-                <div ng-if="message.user !== user.id" class="msg-teacher msg">{{message.content}}</div>
+
+                <div ng-click="show[$index] = !show[index]">
+                    <div ng-if="message.user == user.id" class="msg-student msg">{{message.content}}</div>
+                    <div ng-if="message.user !== user.id" class="msg-teacher msg">{{message.content}}</div>
+                </div>
+
                 <div class="row"></div>
+
+                <div ng-hide="!show[$index]">
+                    <p ng-if="message.user == user.id" class="text-right">{{message.datetime}}</p>
+                    <p ng-if="message.user !== user.id" class="text-left">{{message.datetime}}</p>
+                </div>
             </div>
         </ion-scroll>
 
