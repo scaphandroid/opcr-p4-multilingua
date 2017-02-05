@@ -31,7 +31,8 @@ angular.module('starter.services', [])
 
         //on trouve ici les termes du layout de cette page pour chaque language
         var layouteng = {
-            titrePage: 'Our next formations'
+            titrePage: 'Our next formations',
+            inscription: 'Manage your planning'
         };
 
         //est utilisé ici en local mais pourra être adapté à une api
@@ -39,6 +40,9 @@ angular.module('starter.services', [])
             // récupère le planning général pour une langue
             get: function(language){
                 return  $http.get('ressources/jsons/planning' + language + '.json');
+            },
+            get_student: function(user){
+                return $http.get('ressources/jsons/planningStudent' + user + '.json');
             },
             get_layout: function(language){
                 if(language = 'eng'){

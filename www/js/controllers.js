@@ -71,16 +71,33 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('PlanningCtrl', function($scope, Planning) {
+    .controller('PlanningCtrl', function($scope, Planning, $rootScope, $ionicPopup) {
 
         // on récupère les éléments du layout qui dépendent de la langue
-        $scope.layout = Planning.get_layout('eng');
+        $scope.layout = Planning.get_layout('eng')
 
-        // on récupère le planning en fonction du language désiré via le service Planning
-        Planning.get('eng').success( function (response) {
-            $scope.planning = response;
-            console.log($scope.planning);
-        });
+        //si il l'utilisateur est un étudiant on récupère le planning personnalisé de l'étudiant
+        if($rootScope.user.type === 'etudiant'){
+            Planning.get_student($rootScope.user.id).success( function (response) {
+                $scope.planning = response;
+            }).error( function(error) {
+                console.log(error);
+                $ionicPopup.alert({
+                    title: 'Erreur dans le chargement de votre planning !'
+                });
+            })
+        }
+        // sinon on récupère le planning général en fonction du language désiré via le service Planning
+        else{
+            Planning.get('eng').success( function (response) {
+                $scope.planning = response;
+            }).error( function(error) {
+                console.log(error);
+                $ionicPopup.alert({
+                    title: 'Erreur dans le chargement du planning !'
+                });
+            })
+        }
     })
 
     .controller('ContactsCtrl', function($scope, Contacts, $ionicPopup) {

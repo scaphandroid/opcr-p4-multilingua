@@ -1,0 +1,39 @@
+{
+  "formations": [
+      {
+          "titre": "Your personnal english lesson",
+          "lieux": {
+            "ville": "Paris",
+            "rue": "12 rue Henri Lemoine",
+            "code_postal": "75013"
+          },
+          "date": {
+            "jour": "12",
+            "mois": "02",
+            "annee": "2017",
+            "heure": "2",
+            "minutes": "30",
+            "am_pm": "PM"
+          },
+          "url": ""
+      },
+      {
+        "titre": "Your second personnal english lesson",
+        "lieux": {
+          "ville": "Paris",
+          "rue": "12 rue Henri Lemoine",
+          "code_postal": "75013"
+        },
+        "date": {
+          "jour": "16",
+          "mois": "02",
+          "annee": "2017",
+          "heure": "2",
+          "minutes": "30",
+          "am_pm": "PM"
+        },
+        "url": ""
+      }
+  ]
+}
+
