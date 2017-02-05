@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state) {
+    .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state, $cordovaMedia) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
@@ -52,8 +52,9 @@ angular.module('starter.controllers', [])
             });
         });
 
-        $scope.audioPlayer = function(src ) {
+        $scope.audioPlayer = function(src) {
             console.log('play ' + src);
+            $cordovaMedia.newMedia(src);
         }
 
         $scope.startExercices = function() {
