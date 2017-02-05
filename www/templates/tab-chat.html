@@ -3,15 +3,15 @@
 
         <h1>{{ layout.titrePage }}</h1>
 
-        <div class="card" id="tchat-card">
+        <ion-scroll class="card" id="tchat-card" scrollbar-x="false" zooming="false">
             <div ng-repeat="message in conversation.messages">
                 <div ng-if="message.user == user.id" class="msg-student msg">{{message.content}}</div>
                 <div ng-if="message.user !== user.id" class="msg-teacher msg">{{message.content}}</div>
                 <div class="row"></div>
             </div>
-        </div>
+        </ion-scroll>
 
-        <div keyboard-attach class="bar-stable item-input-inset">
+        <div keyboard-attach class="bar-stable item-input-inset" ng-show="scrollBottom()">
             <label class="item-input-wrapper">
                 <input type="text" placeholder="Type your message" ng-model="data.message"/>
             </label>

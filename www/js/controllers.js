@@ -107,7 +107,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('ChatCtrl', function(Chat, $scope, $rootScope){
+    .controller('ChatCtrl', function(Chat, $scope, $rootScope, $ionicScrollDelegate){
 
         $scope.data = {};
 
@@ -119,6 +119,12 @@ angular.module('starter.controllers', [])
             console.log($scope.conversation);
         });
 
+        // on scroll jusqu'au dernier message au chargement et on affiche la barre d'édition
+        $scope.scrollBottom = function(){
+            $ionicScrollDelegate.scrollBottom();
+            return true;
+        }
+
         $scope.send = function(message){
             //on n'envoie pas de message vide
             if(message){
@@ -128,6 +134,7 @@ angular.module('starter.controllers', [])
                 };
                 $scope.conversation.messages.push(nouveauMsg);
                 $scope.data = {};
+                $ionicScrollDelegate.scrollBottom();
             }
         }
     })
