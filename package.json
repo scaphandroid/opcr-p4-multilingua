@@ -21,7 +21,8 @@
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
-    "cordova-plugin-nativeaudio"
+    "cordova-plugin-media",
+    "https://github.com/katzer/cordova-plugin-local-notifications.git"
   ],
   "cordovaPlatforms": []
 }
