@@ -45,17 +45,34 @@ angular.module('starter.controllers', [])
         // on récupère la leçon en fonction du language et de la date désiré via le service Courses
         Courses.get('eng', '').success( function (response) {
             $scope.courses = response;
+
             // préparation de l'audio
-            var media = new Media($scope.courses.audioURL);
-            console.log(media);
+            var src = $scope.courses.audioURL;
+            if(ionic.Platform.isAndroid()){
+                src = '/android_asset/www/' + src;
+            }
             var playing = false;
+            var media = new Media(src,
+                function onSuccess() {
+                    // release the media resource once finished playing
+                    media.release();
+                    playing = false;
+                },
+                function onError(e){
+                    console.log("error playing sound: " + JSON.stringify(e));
+                }
+            );
+
             //gestion de l'audio
             $scope.audioPlayer = function(src) {
                 if(!playing){
                     media.play();
                     playing = true;
+                    console.log('playing');
                 }else{
                     media.pause();
+                    console.log("pause");
+                    playing = false;
                 }
             };
         }).error( function() {
