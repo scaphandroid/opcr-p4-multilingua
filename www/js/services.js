@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-    //gestion de l'utilisateur, de ses préférences et notifications
+//gestion de l'utilisateur, de ses préférences et notifications
     .factory('User', function(Planning){
 
         var user = {};
@@ -19,14 +19,15 @@ angular.module('starter.services', [])
             },
             update_planning_student: function(){
                 //TODO Supprimer toutes les notifications en cours
-               Planning.get_student(user.id).success(function(response){
+                Planning.get_student(user.id).success(function(response){
                     var formations = response.formations;
-                    console.log(formations);
+                    //TODO conditionner ça à l'activation des notifications
                     for(var i = 0 ; i < formations.length ; i++){
-                        console.log(formations[i]);
+                        var dateFormatee = new Date(formations[i].date.formated);
+                        // la notification est prévue une heure avant
+                        var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
                     }
-               });
-
+                });
             }
         }
 
