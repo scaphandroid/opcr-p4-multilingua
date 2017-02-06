@@ -20,7 +20,11 @@ angular.module('starter.services', [])
             update_planning_student: function(){
                 //TODO Supprimer toutes les notifications en cours
                Planning.get_student(user.id).success(function(response){
-
+                    var formations = response.formations;
+                    console.log(formations);
+                    for(var i = 0 ; i < formations.length ; i++){
+                        console.log(formations[i]);
+                    }
                });
 
             }
