@@ -16,6 +16,9 @@ angular.module('starter.services', [])
             get_user_type: function(){
                 return user.type;
             },
+            set_user_notification: function(yesorno){
+                user.notification = yesorno;
+            },
             update_planning_student: function(){
                 // on supprime les éventuelles notifications en cours
                 cordova.plugins.notification.local.cancelAll();
@@ -25,27 +28,26 @@ angular.module('starter.services', [])
                     var formations = response.formations;
                     //TODO conditionner ça à l'activation des notifications
                     $ionicPlatform.ready(function() {
-                        for(var i = 0 ; i < formations.length ; i++){
-                            var dateFormatee = new Date(formations[i].date.formated);
-                            // la notification est prévue une heure avant
-                            var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
-                            console.log(dateAlerte);
-                            //TODO push de la notification
-                            cordova.plugins.notification.local.schedule({
-                                id: i,
-                                title: 'Rappel formation :' + formations[i].titre,
-                                text: formations[i].date.formated + ' au ' + formations[i].lieux.rue + ', '
-                                        + formations[i].lieux.code_postal + ', ' + formations[i].lieux.ville,
-                                at: dateAlerte
-                            });
-                            cordova.plugins.notification.local.get(i);
-                        };
+                        if(user.notification){
+                            for(var i = 0 ; i < formations.length ; i++){
+                                var dateFormatee = new Date(formations[i].date.formated);
+                                // la notification est prévue une heure avant
+                                var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
+                                console.log(dateAlerte);
+                                //TODO push de la notification
+                                cordova.plugins.notification.local.schedule({
+                                    id: i,
+                                    title: 'Rappel formation :' + formations[i].titre,
+                                    text: formations[i].date.formated + ' au ' + formations[i].lieux.rue + ', '
+                                    + formations[i].lieux.code_postal + ', ' + formations[i].lieux.ville,
+                                    at: dateAlerte
+                                });
+                            };
+                        }
                     });
-                    //console.log(cordova.plugins.notification.local.getAllTriggered());
                 });
             }
         }
-
     })
 
     .factory('Courses', function($http) {

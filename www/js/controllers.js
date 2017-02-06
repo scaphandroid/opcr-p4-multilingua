@@ -18,6 +18,7 @@ angular.module('starter.controllers', [])
             {
                 $rootScope.user.id = 'utilisateur';
                 $rootScope.user.type = 'utilisateur';
+                $rootScope.user.notification = true;
                 $rootScope.user.active = true;
                 login = true;
                 User.set_user($rootScope.user);
@@ -27,6 +28,7 @@ angular.module('starter.controllers', [])
                 $rootScope.user.id = 'etudiant';
                 $rootScope.user.type = 'etudiant';
                 $rootScope.user.active = true;
+                $rootScope.user.notification = false;
                 login = true;
                 User.set_user($rootScope.user);
             }
@@ -198,7 +200,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('ParametersCtrl', function($scope, Parameters, $state) {
+    .controller('ParametersCtrl', function($scope, Parameters, $state, $rootScope, User) {
 
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
@@ -207,6 +209,15 @@ angular.module('starter.controllers', [])
 
         $scope.goLogOut = function(){
             $state.go('login');
+        }
+
+        $scope.updateNotification = function(){
+            console.log($rootScope.user.notification);
+            User.set_user_notification($rootScope.user.notification);
+            // une fois le paramètre des notifications enregistré, on les met à jour
+            if(User.get_user_type() === "etudiant"){
+                User.update_planning_student();
+            }
         }
     })
 
