@@ -26,7 +26,6 @@ angular.module('starter.services', [])
                 //on récupère le planning et on met à jour les notifications
                 Planning.get_student(user.id).success(function(response){
                     var formations = response.formations;
-                    //TODO conditionner ça à l'activation des notifications
                     $ionicPlatform.ready(function() {
                         if(user.notification){
                             for(var i = 0 ; i < formations.length ; i++){
@@ -34,7 +33,6 @@ angular.module('starter.services', [])
                                 // la notification est prévue une heure avant
                                 var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
                                 console.log(dateAlerte);
-                                //TODO push de la notification
                                 cordova.plugins.notification.local.schedule({
                                     id: i,
                                     title: 'Rappel formation :' + formations[i].titre,
