@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
 
 //gestion de l'utilisateur, de ses préférences et notifications
-    .factory('User', function(Planning){
+    .factory('User', function(Planning, $cordovaLocalNotification, $ionicPlatform){
 
         var user = {};
         var notifications = {};
@@ -18,15 +18,26 @@ angular.module('starter.services', [])
                 return user.type;
             },
             update_planning_student: function(){
-                //TODO Supprimer toutes les notifications en cours
+                // on supprime les éventuelles notifications en cours
+                $cordovaLocalNotification.cancelAll();
+
+                //on récupère le planning et on met à jour les notifications
                 Planning.get_student(user.id).success(function(response){
                     var formations = response.formations;
                     //TODO conditionner ça à l'activation des notifications
-                    for(var i = 0 ; i < formations.length ; i++){
-                        var dateFormatee = new Date(formations[i].date.formated);
-                        // la notification est prévue une heure avant
-                        var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
-                    }
+                    $ionicPlatform.ready(function() {
+                        for(var i = 0 ; i < formations.length ; i++){
+                            var dateFormatee = new Date(formations[i].date.formated);
+                            // la notification est prévue une heure avant
+                            var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
+                            //TODO push de la notification
+                            cordova.plugins.notification.local.schedule({
+                                id: 1,
+                                title: 'Title here',
+                                text: 'Text here'
+                            });
+                        };
+                    });
                 });
             }
         }
