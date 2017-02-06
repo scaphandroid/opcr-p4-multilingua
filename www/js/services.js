@@ -4,7 +4,6 @@ angular.module('starter.services', [])
     .factory('User', function(Planning, $cordovaLocalNotification, $ionicPlatform){
 
         var user = {};
-        var notifications = {};
 
         return {
             //lors du login
@@ -19,7 +18,7 @@ angular.module('starter.services', [])
             },
             update_planning_student: function(){
                 // on supprime les éventuelles notifications en cours
-                $cordovaLocalNotification.cancelAll();
+                cordova.plugins.notification.local.cancelAll();
 
                 //on récupère le planning et on met à jour les notifications
                 Planning.get_student(user.id).success(function(response){
@@ -30,14 +29,19 @@ angular.module('starter.services', [])
                             var dateFormatee = new Date(formations[i].date.formated);
                             // la notification est prévue une heure avant
                             var dateAlerte = new Date(dateFormatee.getTime() - (3600 * 1000));
+                            console.log(dateAlerte);
                             //TODO push de la notification
                             cordova.plugins.notification.local.schedule({
-                                id: 1,
-                                title: 'Title here',
-                                text: 'Text here'
+                                id: i,
+                                title: 'Rappel formation :' + formations[i].titre,
+                                text: formations[i].date.formated + ' au ' + formations[i].lieux.rue + ', '
+                                        + formations[i].lieux.code_postal + ', ' + formations[i].lieux.ville,
+                                at: dateAlerte
                             });
+                            cordova.plugins.notification.local.get(i);
                         };
                     });
+                    //console.log(cordova.plugins.notification.local.getAllTriggered());
                 });
             }
         }
