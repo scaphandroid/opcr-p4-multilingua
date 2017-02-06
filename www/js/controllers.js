@@ -51,12 +51,14 @@ angular.module('starter.controllers', [])
             if(ionic.Platform.isAndroid()){
                 src = '/android_asset/www/' + src;
             }
-            var playing = false;
+            $scope.playing = false;
             var media = new Media(src,
                 function onSuccess() {
                     // release the media resource once finished playing
                     media.release();
-                    playing = false;
+                    $scope.$apply(function(){
+                        $scope.playing = false;
+                    })
                 },
                 function onError(e){
                     console.log("error playing sound: " + JSON.stringify(e));
@@ -65,14 +67,14 @@ angular.module('starter.controllers', [])
 
             //gestion de l'audio
             $scope.audioPlayer = function(src) {
-                if(!playing){
+                if(!$scope.playing){
                     media.play();
-                    playing = true;
+                    $scope.playing = true;
                     console.log('playing');
                 }else{
                     media.pause();
                     console.log("pause");
-                    playing = false;
+                    $scope.playing = false;
                 }
             };
         }).error( function() {
