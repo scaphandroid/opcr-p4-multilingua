@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-    .controller('LoginCtrl', function($scope, $state, $rootScope, $ionicPopup) {
+    .controller('LoginCtrl', function($scope, $state, $rootScope, $ionicPopup, User) {
 
         $rootScope.user = {
             id: '',
@@ -13,19 +13,22 @@ angular.module('starter.controllers', [])
         $scope.signIn = function() {
             // ce login est uniquement pour le prototype
             // il n'utilise pas de mot de passe pour le moment !
+            var login = false;
             if($scope.loginData.email === 'utilisateur@multilingua.fr' )
             {
                 $rootScope.user.id = 'utilisateur';
                 $rootScope.user.type = 'utilisateur';
                 $rootScope.user.active = true;
-                $state.go('tab.courses');
+                login = true;
+                User.set_user($rootScope.user);
             }
             else if($scope.loginData.email === 'etudiant@multilingua.fr')
             {
                 $rootScope.user.id = 'etudiant';
                 $rootScope.user.type = 'etudiant';
                 $rootScope.user.active = true;
-                $state.go('tab.courses');
+                login = true;
+                User.set_user($rootScope.user);
             }
             else
             {
@@ -33,6 +36,15 @@ angular.module('starter.controllers', [])
                     title: 'Erreur !',
                     template: 'Identifiants inconnus !'
                 })
+            }
+            if(login){
+
+                //si l'utilisateur est étudiant on récupère son planning pour mettre à jour ses notifications
+                if(User.get_user_type() === 'etudiant'){
+                    User.update_planning_student();
+                }
+                $state.go('tab.courses');
+
             }
         }
     })
@@ -109,7 +121,6 @@ angular.module('starter.controllers', [])
             Planning.get_student($rootScope.user.id).success( function (response) {
                 $scope.planning = response;
             }).error( function(error) {
-                console.log(error);
                 $ionicPopup.alert({
                     title: 'Erreur dans le chargement de votre planning !'
                 });
@@ -120,7 +131,6 @@ angular.module('starter.controllers', [])
             Planning.get('eng').success( function (response) {
                 $scope.planning = response;
             }).error( function(error) {
-                console.log(error);
                 $ionicPopup.alert({
                     title: 'Erreur dans le chargement du planning !'
                 });

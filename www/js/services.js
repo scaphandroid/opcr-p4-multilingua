@@ -1,5 +1,33 @@
 angular.module('starter.services', [])
 
+    //gestion de l'utilisateur, de ses préférences et notifications
+    .factory('User', function(Planning){
+
+        var user = {};
+        var notifications = {};
+
+        return {
+            //lors du login
+            set_user: function(userConnecter){
+                user = userConnecter;
+            },
+            get_user: function(){
+                return user;
+            },
+            get_user_type: function(){
+                return user.type;
+            },
+            update_planning_student: function(){
+                //TODO Supprimer toutes les notifications en cours
+               Planning.get_student(user.id).success(function(response){
+
+               });
+
+            }
+        }
+
+    })
+
     .factory('Courses', function($http) {
 
         //on trouve ici les termes du layout de cette page pour chaque language
