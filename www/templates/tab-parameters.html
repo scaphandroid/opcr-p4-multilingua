@@ -7,6 +7,7 @@
 
             <ion-item>
                 {{layout.language}}
+                <div class="marginbtn"></div>
                 <ion-list>
                     <ion-radio ng-model="languageparam" ng-value="'English'">English</ion-radio>
                     <ion-radio ng-model="languageparam" >Español</ion-radio>
@@ -27,7 +28,7 @@
 
             <ion-item>
                 {{layout.login}} {{user.id}} <!-- TODO il faudra indiquer ici l'utilisateur--><br>
-                <button class="button button-positive" ng-click="goLogOut()">{{ layout.logoutButton }}</button>
+                <button class="button button-positive marginbtn" ng-click="goLogOut()">{{ layout.logoutButton }}</button>
             </ion-item>
         </ion-list>
     </ion-content>

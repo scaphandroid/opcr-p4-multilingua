@@ -65,7 +65,7 @@ input, textarea{
 
 .button.button-positive{
     background-color: #54CAF5;
-    color: black;
+    color: white;
 }
 
 #logo_login{
@@ -123,6 +123,10 @@ input, textarea{
     text-align: right;
     float: right;
     background-color: #C7C7CC;
+}
+
+.marginbtn{
+    margin-top: 10px;
 }
 
 

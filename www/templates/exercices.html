@@ -7,7 +7,7 @@
 
         <h4>{{exo.intitule}}</h4>
 
-        <div ng-switch on="exo.type">
+        <div class="marginbtn" ng-switch on="exo.type">
             <div ng-switch-when="choix multiples">
                 <ion-list ng-repeat="choix in exo.choix">
                     <ion-checkbox ng-model="reponse[choix]">{{choix}}</ion-checkbox>
@@ -28,6 +28,6 @@
                 </ion-list>
             </div>
         </div>
-        <button class="button button-positive" ng-click="submit()">submit</button>
+        <button class="marginbtn button button-positive" ng-click="submit()">SUBMIT</button>
     </ion-content>
 </ion-view>
