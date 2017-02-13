@@ -142,6 +142,23 @@ angular.module('starter.services', [])
         }
     })
 
+    .factory('Exercices', function(){
+
+        var layouteng = {
+            back: 'back to courses',
+            exercice: 'Exercice',
+            submit: 'Submit'
+        }
+
+        return{
+            get_layout: function(language){
+                if (language= 'eng'){
+                    return layouteng;
+                }
+            }
+        }
+    })
+
     .factory('Parameters', function() {
 
         //on trouve ici les termes du layout de cette page pour chaque language

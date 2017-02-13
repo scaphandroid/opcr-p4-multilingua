@@ -221,9 +221,9 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $ionicPlatform) {
+    .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $ionicPlatform, Exercices) {
 
-        //TODO il faudra prévoir le chargement du layout pour la langue
+        $scope.layout = Exercices.get_layout('eng');
 
         $ionicPlatform.onHardwareBackButton(function() {
             event.preventDefault();
@@ -244,7 +244,8 @@ angular.module('starter.controllers', [])
             $scope.exo = exercices.exo[$stateParams.numeroexo];
             $scope.numeroexo = numeroexo+1;
         }else{
-            //TODO retourner au cours avec une erreur
+            //retour au cours en cas d'erreur
+            $state.go('tab.courses');
         }
 
         //lors du submit, soit on recharge la page d'exerices au numéro suivant

@@ -1,9 +1,9 @@
 <ion-view view-title="Exercices" hide-nav-bar="true">
     <ion-content class="padding text-center back-color">
 
-        <a href="#/tab/courses">Retour au cours</a>
+        <a href="#/tab/courses">{{layout.back}}</a>
 
-        <h1>Exercices {{numeroexo}}</h1>
+        <h1>{{layout.exercice}} {{numeroexo}}</h1>
 
         <h4>{{exo.intitule}}</h4>
 
@@ -28,6 +28,6 @@
                 </ion-list>
             </div>
         </div>
-        <button class="marginbtn button button-positive" ng-click="submit()">SUBMIT</button>
+        <button class="marginbtn button button-positive" ng-click="submit()">{{layout.submit}}</button>
     </ion-content>
 </ion-view>
