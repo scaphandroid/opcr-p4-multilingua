@@ -11,12 +11,12 @@
             </ion-item>
 
             <ion-item class="back-color logitem">
-                <input class="back-color" type="password" ng-model="loginData.password" placeholder="Votre mot de passe">
+                <input class="back-color" type="password" ng-model="loginData.password" placeholder="Votre mot de passe" ng-enter="signIn()">
             </ion-item>
         </ion-list>
 
         <div class="padding text-center">
-            <button class="button button-positive" ng-click="signIn()">Se connecter</button>
+            <button class="button button-positive"  ng-click="signIn()">Se connecter</button>
         </div>
 
         <h2>
