@@ -55,7 +55,7 @@ angular.module('starter.services', [])
             exerciceButton: 'PRACTICE'
         };
 
-        // TODO prévoir un fallback si pas d'exercice ? ou indiquer de l'implanter sur le serveur ?
+        // prévoir un fallback dans l'api, si pas d'exercice nouveau il faudra renvoyer celui du jour précédent
         //est utilisé ici en local mais pourra être adapté à une api
         return {
             // pour récupérer la leçon du jour en fonction de la date et la langue désirée
