@@ -159,7 +159,7 @@ angular.module('starter.controllers', [])
                     title: layout.confirmationTitre,
                     template: layout.confirmationMsg
                 });
-                //TODO si le message est envoyé il faudra également penser à vider les inputs
+                $scope.msg = [];
             }
         }
     })
