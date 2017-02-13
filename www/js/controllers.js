@@ -303,11 +303,11 @@ angular.module('starter.controllers', [])
             var msgPopUp = '';
 
             if(reponsejuste){
-                titrePopUp = 'Bravo !';
-                msgPopUp = 'Réponse juste !';
+                titrePopUp = $scope.layout.juste;
+                msgPopUp = $scope.layout.justeMsg;
             }else{
-                titrePopUp = 'Raté !';
-                msgPopUp = 'Ce qui était juste :<br>' +  reponseaindiquer ;
+                titrePopUp = $scope.layout.faux;
+                msgPopUp = $scope.layout.reponsejuste + '<br>' +  reponseaindiquer ;
             }
 
             var popUp = $ionicPopup.alert({

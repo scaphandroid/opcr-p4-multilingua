@@ -147,7 +147,11 @@ angular.module('starter.services', [])
         var layouteng = {
             back: 'back to courses',
             exercice: 'Exercice',
-            submit: 'Submit'
+            submit: 'Submit',
+            juste: 'Correct',
+            justeMsg: 'Well done !',
+            faux: 'Wrong !',
+            reponsejuste: 'Correct answer :'
         }
 
         return{
