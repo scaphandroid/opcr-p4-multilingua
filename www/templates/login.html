@@ -6,14 +6,12 @@
         <h1>Merci de vous connecter <br> avec votre compte Multilingua</h1>
 
         <ion-list>
-            <ion-item class="back-color">
-                <span class="input-label">Votre email</span>
-                <input class="back-color" type="text" ng-model="loginData.email">
+            <ion-item class="back-color logitem">
+                <input class="back-color" type="email" ng-model="loginData.email" placeholder="Votre email">
             </ion-item>
 
-            <ion-item class="back-color">
-                <span class="input-label">Votre mot de passe</span>
-                <input class="back-color" type="password" ng-model="loginData.password">
+            <ion-item class="back-color logitem">
+                <input class="back-color" type="password" ng-model="loginData.password" placeholder="Votre mot de passe">
             </ion-item>
         </ion-list>
 

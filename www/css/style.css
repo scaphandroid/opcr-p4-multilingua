@@ -68,6 +68,10 @@ input, textarea{
     color: white;
 }
 
+.logitem{
+    max-height: 80px;
+}
+
 #logo_login{
     max-width: 100%;
     height: 100px;
