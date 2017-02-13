@@ -281,8 +281,7 @@ angular.module('starter.controllers', [])
             }
 
             if ($scope.exo.type === 'phrase'){
-                //TODO éventuellement le rendre insensible à la casse ?
-                if($scope.reponse.texte === $scope.exo.reponse){
+                if($scope.reponse.texte.toUpperCase() === $scope.exo.reponse.toUpperCase()){
                     reponsejuste = true;
                     score ++;
                 }else{
