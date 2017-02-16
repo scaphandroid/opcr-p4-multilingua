@@ -8,10 +8,6 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
     .run(function($ionicPlatform, $rootScope) {
-
-        //$rootScope.user = { id: 'test', score: 0, active: true};
-
-
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -28,7 +24,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
 
     .config(function($stateProvider, $urlRouterProvider) {
-
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
         // Set up the various states which the app can be in.
@@ -128,7 +123,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     scope.$apply(function(){
                         scope.$eval(attrs.ngEnter);
                     });
-
                     event.preventDefault();
                 }
             });
