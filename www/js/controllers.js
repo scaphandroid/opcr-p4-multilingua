@@ -1,7 +1,6 @@
 angular.module('starter.controllers', [])
 
     .controller('LoginCtrl', function($scope, $state, $rootScope, $ionicPopup, User) {
-
         $rootScope.user = {
             id: '',
             type: '',
@@ -40,7 +39,6 @@ angular.module('starter.controllers', [])
                 })
             }
             if(login){
-
                 //si l'utilisateur est étudiant on récupère son planning pour mettre à jour ses notifications
                 if(User.get_user_type() === 'etudiant'){
                     User.update_planning_student();
@@ -52,7 +50,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('CoursesCtrl', function($scope, Courses, $ionicPopup, $rootScope, $state, $cordovaMedia, $ionicPlatform) {
-
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Courses.get_layout('eng');
 
@@ -114,7 +111,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('PlanningCtrl', function($scope, Planning, $rootScope, $ionicPopup) {
-
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Planning.get_layout('eng')
 
@@ -141,7 +137,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ContactsCtrl', function($scope, Contacts, $ionicPopup) {
-
         $scope.msg = {};
 
         // on récupère les éléments du layout qui dépendent de la langue
@@ -165,7 +160,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ChatCtrl', function(Chat, $scope, $rootScope, $ionicScrollDelegate){
-
         $scope.data = {};
 
         // on récupère les éléments du layout qui dépendent de la langue
@@ -173,7 +167,6 @@ angular.module('starter.controllers', [])
 
         Chat.get_messages($rootScope.user.id).success( function (response) {
             $scope.conversation = response;
-            console.log($scope.conversation);
         });
 
         // on scroll jusqu'au dernier message au chargement et on affiche la barre d'édition
@@ -201,7 +194,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ParametersCtrl', function($scope, Parameters, $state, $rootScope, User) {
-
         // on récupère les éléments du layout qui dépendent de la langue
         $scope.layout = Parameters.get_layout('eng');
 
@@ -212,7 +204,6 @@ angular.module('starter.controllers', [])
         }
 
         $scope.updateNotification = function(){
-            console.log($rootScope.user.notification);
             User.set_user_notification($rootScope.user.notification);
             // une fois le paramètre des notifications enregistré, on les met à jour
             if(User.get_user_type() === "etudiant"){
@@ -222,7 +213,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ExercicesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $ionicPlatform, Exercices) {
-
         $scope.layout = Exercices.get_layout('eng');
 
         $ionicPlatform.onHardwareBackButton(function() {
@@ -234,7 +224,6 @@ angular.module('starter.controllers', [])
         // on récupère les données des exercices, le score et le numéro d'exercice en cours
         var numeroexo = parseInt($stateParams.numeroexo);
         var score = parseInt($stateParams.score);
-        console.log(score);
         var exercices = $rootScope.exercices;
 
         // stockera la réponse de l'utilisateur
@@ -325,7 +314,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ScoreCtrl', function($stateParams, $state, $scope){
-
         $scope.score = parseInt($stateParams.score);
         $scope.nbexo = parseInt($stateParams.nbexo);
     });
