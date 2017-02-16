@@ -1,7 +1,7 @@
 {
-  "name": "p4_multilingua",
+  "name": "Multilingua",
   "version": "1.1.1",
-  "description": "p4_multilingua: An Ionic project",
+  "description": "Apprenez une langue étrangère avec Multilingua.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
